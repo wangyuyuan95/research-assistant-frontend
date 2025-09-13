@@ -27,9 +27,9 @@ import {
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state';
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
-const SIDEBAR_WIDTH = '16rem';
-const SIDEBAR_WIDTH_MOBILE = '18rem';
-const SIDEBAR_WIDTH_ICON = '3rem';
+const SIDEBAR_WIDTH = '22rem';
+const SIDEBAR_WIDTH_MOBILE = '16rem';
+const SIDEBAR_WIDTH_ICON = '5rem';
 const SIDEBAR_KEYBOARD_SHORTCUT = 'b';
 
 type SidebarContextProps = {
@@ -187,7 +187,7 @@ function Sidebar({
           data-sidebar="sidebar"
           data-slot="sidebar"
           data-mobile="true"
-          className="bg-[#efefef] dark:bg-gray-900 text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden"
+          className="bg-[#FFFFFF] dark:bg-[#202426] text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden"
           style={
             {
               '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
@@ -244,7 +244,7 @@ function Sidebar({
         <div
           data-sidebar="sidebar"
           data-slot="sidebar-inner"
-          className="bg-[#efefef] dark:bg-gray-900 group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm"
+          className="bg-[#FFFFFF] dark:bg-[#202426] group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm"
         >
           {children}
         </div>
@@ -264,10 +264,10 @@ function SidebarTrigger({
     <Button
       data-sidebar="trigger"
       data-slot="sidebar-trigger"
-      variant="ghost"
+      variant='default'
       size="icon"
               className={cn(
-          'fixed top-1/2 -translate-y-1/2 z-50 h-12 w-6 rounded-l-none rounded-r-md border-l border-border bg-background/95 backdrop-blur-sm shadow-sm transition-all duration-200 hover:bg-accent hover:shadow-md',
+          'fixed top-1/2 -translate-y-1/2 z-50 h-12 w-6 rounded-l-none rounded-r-md border-l border-border bg-[#FFFFFF] dark:bg-[#202426] backdrop-blur-sm shadow-sm transition-all duration-200 hover:bg-accent hover:shadow-md',
           'group-data-[state=collapsed]:left-[calc(var(--sidebar-width-icon)-1px)]',
           'group-data-[state=expanded]:left-[calc(var(--sidebar-width)-1px)]',
           className

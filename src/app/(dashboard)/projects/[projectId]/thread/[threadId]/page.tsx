@@ -805,8 +805,8 @@ export default function ThreadPage({
 
         <div
           className={cn(
-            "fixed bottom-0 z-10 bg-gradient-to-t from-background via-background/90 to-transparent px-4 pt-8 transition-all duration-200 ease-in-out",
-            leftSidebarState === 'expanded' ? 'left-[72px] lg:left-[256px]' : 'left-[72px]',
+            "fixed bottom-0 z-10 px-8 pt-8 transition-all duration-200 ease-in-out",
+            leftSidebarState === 'expanded' ? 'left-[78px] lg:left-[358px]' : 'left-[78px]',
             isMobile ? 'left-0 right-0' : ''
           )}
           style={isSidePanelOpen && !isMobile ? { right: `${sidePanelWidth}vw` } : undefined}>

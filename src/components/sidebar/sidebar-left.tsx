@@ -97,19 +97,13 @@ export function SidebarLeft({
   return (
     <Sidebar
       collapsible="icon"
-      className="border-r-0 backdrop-blur-sm [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+      className="bg-[#FFFFFF] dark:bg-[#202426] px-[40px] pt-[28px] pb-[43px] border-r-0 backdrop-blur-sm [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
       {...props}
     >
-      <SidebarHeader className="px-2 py-2">
-        <div className="flex h-[40px] items-center px-1 relative">
+      <SidebarHeader>
+        <div className="flex h-[40px] items-center relative">
           <Link href="/dashboard" className="flex items-center">
-            <Image
-              src="/research-assistant-icon.svg"
-              alt="Research Assistant"
-              width={24}
-              height={24}
-              className="h-6 w-6"
-            />
+            
             {state !== 'collapsed' && (
               <span className="ml-2 font-bold text-lg transition-all duration-200 ease-in-out whitespace-nowrap">
                 {t('navbar.appName')}

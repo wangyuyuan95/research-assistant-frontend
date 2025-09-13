@@ -31,6 +31,10 @@ import {
   Pill,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from 'next-themes';
+import Image from 'next/image'
+import lightRefreshSVG from '#/light/refresh-ico.svg';
+import darkRefreshSVG from '#/dark/refresh-ico.svg';
 
 type PromptExample = {
   titleKey: string;
@@ -103,12 +107,13 @@ export const Examples = ({
   onSelectPrompt?: (query: string) => void;
 }) => {
   const { t } = useTranslation();
+  const { theme, resolvedTheme } = useTheme();
   const [displayedPrompts, setDisplayedPrompts] = useState<PromptExample[]>([]);
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   // Initialize with random prompts on mount
   useEffect(() => {
-    setDisplayedPrompts(getRandomPrompts(3));
+    setDisplayedPrompts(getRandomPrompts(10));
   }, []);
 
   const handleRefresh = () => {
@@ -118,28 +123,27 @@ export const Examples = ({
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-4">
-      <div className="flex justify-between items-center mb-3">
-        <span className="text-xs text-muted-foreground font-medium">{t('examples.quickStarts')}</span>
-        <Button
-          variant="ghost"
-          size="sm"
+    <div className="w-full max-w-3xl mx-auto">
+      <div className="flex justify-between items-center my-4">
+        <span className="text-xs text-muted font-bold">{t('examples.quickStarts')}</span>
+        <div
           onClick={handleRefresh}
-          className="h-6 px-2 text-xs text-muted-foreground hover:text-foreground"
+          className="h-6 text-xs text-muted hover:text-foreground"
         >
           <motion.div
-            animate={{ rotate: isRefreshing ? 360 : 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            animate={isRefreshing ? {rotate: 360} : null}
+            transition={{ duration: 0.5, ease: 'easeInOut'}}
           >
-            <RefreshCw size={10} />
+            {resolvedTheme !== 'dark' && <Image src={lightRefreshSVG} alt="" style={{ width: 17, height: 15 }} />}
+            {resolvedTheme === 'dark' && <Image src={darkRefreshSVG} alt="" style={{ width: 17, height: 15 }} />}
           </motion.div>
-        </Button>
+        </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {displayedPrompts.map((prompt, index) => (
           <Card
             key={index}
-            className="group cursor-pointer h-full shadow-none transition-all bg-sidebar hover:bg-neutral-100 dark:hover:bg-neutral-800/60 shadow-lg"
+            className="group cursor-pointer h-full transition-all bg-sidebar hover:bg-neutral-100 dark:hover:bg-neutral-800/60 shadow-lg"
             onClick={() => onSelectPrompt && onSelectPrompt(t(prompt.queryKey))}
           >
             <CardHeader className="px-4 flex flex-row items-center gap-3">

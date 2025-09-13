@@ -474,13 +474,13 @@ export function ToolCallSidePanel({
     return (
       <div
         className={cn(
-          'fixed inset-y-0 right-0 border-l flex flex-col z-30 h-screen transition-all duration-200 ease-in-out',
+          'fixed inset-y-0 right-0 border-l flex flex-col z-30 h-screen transition-all duration-200 ease-in-out bg-[#FFFFFF] dark:bg-[#2A2F31]',
           isMobile ? 'w-full' : '',
           !isOpen && 'translate-x-full',
         )}
         style={!isMobile ? { width: `${sidePanelWidth}vw` } : undefined}
       >
-        <div className="flex-1 flex flex-col overflow-hidden bg-background">
+        <div className="flex-1 flex flex-col overflow-hidden">
           <div className="flex flex-col h-full">
             <div className="pt-4 pl-4 pr-4">
               <div className="flex items-center justify-between">
@@ -717,7 +717,7 @@ export function ToolCallSidePanel({
   return (
           <div
         className={cn(
-          'fixed inset-y-0 right-0 border-l flex flex-col z-30 h-screen transition-all duration-200 ease-in-out',
+          'fixed inset-y-0 right-0 border-l flex flex-col z-30 h-screen transition-all duration-200 ease-in-out bg-[#FFFFFF] dark:bg-[#2A2F31]',
           isMobile ? 'w-full' : '',
           !isOpen && 'translate-x-full',
         )}

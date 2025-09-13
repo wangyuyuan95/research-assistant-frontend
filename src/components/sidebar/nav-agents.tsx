@@ -355,7 +355,7 @@ export function NavAgents() {
     <>
       {/* Sticky new agent button for expanded state */}
       {state !== 'collapsed' && (
-        <div className="sticky top-0 z-10 bg-[#efefef] dark:bg-gray-900 pb-2 pt-2">
+        <div className="sticky top-0 z-10 bg-[#FFFFFF] dark:bg-[#202426] pb-2 pt-2">
           <div className="flex justify-center items-center">
             {selectedThreads.size > 0 ? (
               <div className="flex items-center space-x-1">
@@ -400,7 +400,7 @@ export function NavAgents() {
 
       {/* Collapsed state new agent button */}
       {state === 'collapsed' && (
-        <div className="sticky top-0 z-10 bg-[#efefef] dark:bg-gray-900 pb-2 pt-2 flex justify-center">
+        <div className="sticky top-0 z-10 bg-[#FFFFFF] dark:bg-[#202426] pb-2 pt-2 flex justify-center">
           <SidebarMenuItem className="list-none">
             <Tooltip>
               <TooltipTrigger asChild>

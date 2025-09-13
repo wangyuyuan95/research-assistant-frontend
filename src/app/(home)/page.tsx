@@ -354,7 +354,7 @@ function HomeContent() {
   }
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen w-full">
+    <main className="flex flex-col items-center justify-center w-full" style={{ height:  'calc(100vh - 56px)' }}>
       <div className="w-full divide-y divide-border">
         {/* Hero-like header with flickering grid */}
         <section className="w-full relative overflow-hidden">

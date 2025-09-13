@@ -120,7 +120,7 @@ export default function KnowledgeBasePage({}: KnowledgeBaseIframeProps) {
       
       <div className="flex-1 min-h-0 relative">        
         {hasError && (
-          <div className="absolute inset-0 flex items-center justify-center bg-background">
+          <div className="absolute inset-0 flex items-center justify-center bg-background bg-(image:--BG)">
             <div className="text-center">
               <p className="text-sm text-destructive">{t('knowledgeBase.iframeError')}</p>
             </div>

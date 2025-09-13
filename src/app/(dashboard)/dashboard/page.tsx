@@ -171,7 +171,7 @@ function DashboardContent() {
   return (
     <>
       <ModalProviders />
-      <div className="flex flex-col h-screen w-full bg-gradient-to-br from-white via-blue-50/50 to-blue-100/70 dark:from-slate-900 dark:via-blue-950/40 dark:to-slate-900/90">
+      <div className="flex flex-col h-screen w-full bg-(image:--BG)">
         {isMobile && (
           <div className="absolute top-4 left-4 z-10">
             <Tooltip>
@@ -192,9 +192,9 @@ function DashboardContent() {
         )}
 
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[650px] max-w-[90%]">
-          <div className="flex flex-col items-center text-center w-full">
+          <div className="flex flex-col items-start w-full mb-3">
             <div className="flex items-center gap-1">
-              <h1 className="tracking-tight text-2xl text-muted-foreground leading-tight">
+              <h1 className="tracking-tight text-3xl text-muted leading-tight font-bold">
                 {t('dashboard.hey')}
               </h1>
               <AgentSelector 
@@ -203,13 +203,13 @@ function DashboardContent() {
                 variant="heading"
               />
             </div>
-            <p className="tracking-tight text-2xl font-normal text-muted-foreground/80 mt-2">
+            <p className="tracking-tight text-3xl text-muted mt-2 font-bold">
               {t('dashboard.whatWouldYouLikeToDoToday')}
             </p>
           </div>
           
           <div className={cn(
-            "w-full mb-2",
+            "w-full",
             "max-w-full",
             "sm:max-w-3xl"
           )}>

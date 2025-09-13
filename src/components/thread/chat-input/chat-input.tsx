@@ -259,7 +259,7 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
             }
           }}
         >
-          <div className="w-full text-sm flex flex-col justify-between items-start rounded-lg">            
+          <div className="w-full text-sm flex flex-col justify-between items-start rounded-lg py-1">            
             <CardContent className={`w-full p-1.5 pb-2 ${bgColor} rounded-2xl border shadow-lg shadow-black/5`}>              
               {onAgentSelect && (                
                 <div className="mb-2 px-2">                  
@@ -317,7 +317,7 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
         </Card>
 
         {/* Thinking indicator and timer */}
-        <div className="pb-4 -mt-4 w-full flex items-center justify-center">
+        <div className="-mt-4 w-full flex items-center justify-center">
           <div className="text-xs text-muted-foreground flex items-center gap-2">
             {isAgentRunning ? (
               <>

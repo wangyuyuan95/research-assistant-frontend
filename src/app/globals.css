@@ -7,6 +7,7 @@
 
 @theme inline {
   --color-background: var(--background);
+  --BG: var(--background-img);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -60,6 +61,12 @@
   --exitToLeft: exitToLeft 250ms ease;
   --exitToRight: exitToRight 250ms ease;
   --animate-elliptical-orbit: elliptical-orbit 20s linear infinite;
+
+
+  /* --QuickStartRefresh: var(--QuickStartRefresh-img); */
+
+
+
   @keyframes orbit {
     0% {
       transform: rotate(calc(var(--angle) * 1deg))
@@ -225,7 +232,8 @@
 }
 
 :root {
-  --background: oklch(98.46% 0.002 247.84);
+  --background: #F7F7F7;
+  --background-img: url(/light/BG.png) no-repeat left top / 100% 100%;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -235,7 +243,7 @@
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(54.65% 0.246 262.87);
   --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
+  --muted: #0F0F0F
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.145 0 0);
@@ -250,7 +258,7 @@
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
-  --sidebar: oklch(98.46% 0.002 247.84);
+  --sidebar: oklch(100% 0.00011 271.152);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
@@ -258,11 +266,16 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* --QuickStartRefresh-img: url(/light/refresh-ico.png) no-repeat left top / 100% 100%; */
+
+
 }
 
 .dark {
-  --background: oklch(0.185 0.005 285.823);
-  --foreground: oklch(0.985 0 0);
+  --background: #0F0F0F;
+  --background-img: url(/dark/BG.png);
+  --foreground: #fafafa;
   --card: oklch(0.145 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
@@ -293,6 +306,11 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+
+
+  /* --QuickStartRefresh-img: url(/dark/refresh-ico.png) no-repeat left top / 100% 100%; */
+
+
 }
 
 @layer base {
