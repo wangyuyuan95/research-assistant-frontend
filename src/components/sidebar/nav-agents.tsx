@@ -41,6 +41,7 @@ import {
   TooltipTrigger
 } from "@/components/ui/tooltip"
 import Link from "next/link"
+import Image from 'next/image';
 import { ShareModal } from "./share-modal"
 import { DeleteConfirmationDialog } from "@/components/thread/DeleteConfirmationDialog"
 import { useDeleteOperation } from '@/contexts/DeleteOperationContext'
@@ -49,6 +50,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { ThreadWithProject } from '@/hooks/react-query/sidebar/use-sidebar';
 import { processThreadsWithProjects, useDeleteMultipleThreads, useDeleteThread, useProjects, useThreads } from '@/hooks/react-query/sidebar/use-sidebar';
 import { projectKeys, threadKeys } from '@/hooks/react-query/sidebar/keys';
+import addSVG from '#/add-ico.svg';
 
 export function NavAgents() {
   const { t } = useTranslation();
@@ -355,7 +357,7 @@ export function NavAgents() {
     <>
       {/* Sticky new agent button for expanded state */}
       {state !== 'collapsed' && (
-        <div className="sticky top-0 z-10 bg-[#FFFFFF] dark:bg-[#202426] pb-2 pt-2">
+        <div className="sticky top-0 z-10 bg-[#FFFFFF] dark:bg-[#202426]">
           <div className="flex justify-center items-center">
             {selectedThreads.size > 0 ? (
               <div className="flex items-center space-x-1">
@@ -388,9 +390,9 @@ export function NavAgents() {
             ) : (
               <Link
                 href="/dashboard"
-                className="bg-blue-100/50 dark:bg-blue-900/30 hover:bg-blue-200/50 dark:hover:bg-blue-900/50 text-blue-700 dark:text-blue-300 hover:text-blue-900 dark:hover:text-blue-100 px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 flex items-center gap-1.5 h-8"
+                className="w-full bg-[#3363FF] hover:bg-[#3363FF]/70 text-[#FFFFFF] hover:text-[#FFFFFF]/70 text-[20px] font-normal rounded-md transition-all duration-100 flex items-center justify-center gap-1.5 h-[68px]"
               >
-                <Plus className="h-4 w-4" />
+                <Image src={addSVG} alt="" style={{ width: 14, height: 14 }} />
                 <span>{t('sidebar.newChat')}</span>
               </Link>
             )}
@@ -405,10 +407,9 @@ export function NavAgents() {
             <Tooltip>
               <TooltipTrigger asChild>
                 <div>
-                  <SidebarMenuButton asChild className="h-10 bg-blue-100/50 dark:bg-blue-900/30 hover:bg-blue-200/50 dark:hover:bg-blue-900/50 text-blue-700 dark:text-blue-300 hover:text-blue-900 dark:hover:text-blue-100">
+                  <SidebarMenuButton asChild className="w-full bg-[#3363FF] hover:bg-[#3363FF]/70 text-[#FFFFFF] hover:text-[#FFFFFF]/70 text-[20px] font-normal rounded-md transition-all duration-100 flex items-center justify-center h-[68px]">
                     <Link href="/dashboard" className="flex items-center">
-                      <Plus className="h-4 w-4" />
-                      <span>{t('sidebar.newChat')}</span>
+                      <Image src={addSVG} alt="" style={{ width: 14, height: 14 }} />
                     </Link>
                   </SidebarMenuButton>
                 </div>
@@ -577,7 +578,7 @@ export function NavAgents() {
           </>
         ) : (
           <SidebarMenuItem>
-            <div className="flex items-center justify-center p-4 text-muted-foreground text-sm">
+            <div className="flex items-center justify-center p-4 text-muted text-lg dark:text-[#FFFFFF]">
               {t('sidebar.noChatsYet')}
             </div>
           </SidebarMenuItem>

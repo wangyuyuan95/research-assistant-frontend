@@ -51,15 +51,18 @@ import {
 import { createClient } from '@/lib/supabase/client';
 import { useTheme } from 'next-themes';
 import { sendKnowledgeBaseDisplayData } from '@/lib/kb-integration';
+import { cn } from '@/lib/utils';
 
 export function NavUserWithTeams({
   user,
+  state,
 }: {
   user: {
     name: string;
     email: string;
     avatar: string;
   };
+  state: any
 }) {
   const router = useRouter();
   const { isMobile } = useSidebar();
@@ -183,13 +186,12 @@ export function NavUserWithTeams({
 
   return (
     <Dialog open={showNewTeamDialog} onOpenChange={setShowNewTeamDialog}>
-      <SidebarMenu>
+      <SidebarMenu className={cn('gap-0 h-[90px] justify-center', state === 'collapsed' ? "items-center" : "")}>
         <SidebarMenuItem>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <SidebarMenuButton
-                size="lg"
-                className="bg-[#e4e4e4] dark:bg-gray-700 h-12 data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
               >
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={user.avatar} alt={user.name} />

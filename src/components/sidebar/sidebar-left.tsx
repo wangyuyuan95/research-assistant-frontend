@@ -30,10 +30,17 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { cn } from '@/lib/utils';
+import { useTheme } from 'next-themes';
+import lightSliderTitleSVG from '#/light/sliderTitle.svg';
+import darkSliderTitleSVG from '#/dark/sliderTitle.svg';
+import sliderLogoSVG from '#/sliderLogo.svg';
+import userKnowledgeSVG from '#/user-knowledge-ico.svg';
 
 export function SidebarLeft({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
+  const { theme, resolvedTheme } = useTheme();
   const { state, setOpen, setOpenMobile } = useSidebar();
   const isMobile = useIsMobile();
   const [user, setUser] = useState<{
@@ -97,17 +104,20 @@ export function SidebarLeft({
   return (
     <Sidebar
       collapsible="icon"
-      className="bg-[#FFFFFF] dark:bg-[#202426] px-[40px] pt-[28px] pb-[43px] border-r-0 backdrop-blur-sm [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+      className={cn("bg-[#FFFFFF] dark:bg-[#202426] pt-[28px] pb-[43px] border-r-0 backdrop-blur-sm [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']", state !== 'collapsed' ? "px-[32px]" : "px-[8px]")}
       {...props}
     >
-      <SidebarHeader>
-        <div className="flex h-[40px] items-center relative">
+      <SidebarHeader className={cn("mb-12", state === 'collapsed' ? "items-center" : "")}>
+        <div className={cn("flex h-[40px] items-center relative")}>
           <Link href="/dashboard" className="flex items-center">
-            
-            {state !== 'collapsed' && (
-              <span className="ml-2 font-bold text-lg transition-all duration-200 ease-in-out whitespace-nowrap">
-                {t('navbar.appName')}
-              </span>
+            {(state === 'collapsed') && (
+              <Image src={sliderLogoSVG} alt="" style={{ width: 38, height: 38 }} />
+            )}
+            {(state !== 'collapsed' && resolvedTheme !== 'dark') && (
+              <Image src={lightSliderTitleSVG} alt="" style={{ width: 178, height: 38 }} />
+            )}
+            {(state !== 'collapsed' && resolvedTheme === 'dark') && (
+              <Image src={darkSliderTitleSVG} alt="" style={{ width: 178, height: 38 }} />
             )}
           </Link>
           <div className="ml-auto flex items-center gap-2">
@@ -127,28 +137,30 @@ export function SidebarLeft({
           </div>
         </div>
       </SidebarHeader>
-      <SidebarContent className="overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] relative">
+      <SidebarContent className="overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] relative mb-10r">
         <div className="relative">
           <NavAgents />
-          <div className="sticky bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#efefef] dark:from-gray-900 to-transparent pointer-events-none"></div>
         </div>
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className={cn("w-full h-[159px] px-2 m-0 bg-[#FFFFFF] shadow-[0px_4px_20px_0px_#ECF1FF] rounded-xl gap-0")}>
         {isKBEnabled && (
-          <SidebarMenu>
+          <SidebarMenu className={cn('gap-0 h-[68px] justify-center', state === 'collapsed' ? "items-center" : "")}>
             {/* <Separator/> */}
             <SidebarMenuItem>
-              <SidebarMenuButton asChild className="bg-[#e4e4e4] dark:bg-gray-700 h-10">
+              <SidebarMenuButton asChild >
                 <Link href="/knowledge-base">
-                  <Database className="h-4 w-4" />
-                  <span>{t('sidebar.personalKnowledgeBase')}</span>
+                  <Image src={userKnowledgeSVG} alt="" style={{ width: 14, height: 14 }} />
+                  <span className='text-[##0F0F0F] text-[16px]'>{t('sidebar.personalKnowledgeBase')}</span>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
             {/* <Separator/> */}
           </SidebarMenu>
         )}
-        <NavUserWithTeams user={user} />
+        <div className='w-full px-2'>
+          <div className='h-[1px] bg-[#F3F3F3]'></div>
+        </div>
+        <NavUserWithTeams user={user} state={state} />
       </SidebarFooter>
       <SidebarRail />
       <SidebarTrigger />
