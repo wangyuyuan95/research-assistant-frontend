@@ -146,11 +146,11 @@ export function SidebarLeft({
         {isKBEnabled && (
           <SidebarMenu className={cn('gap-0 h-[68px] justify-center', state === 'collapsed' ? "items-center" : "")}>
             {/* <Separator/> */}
-            <SidebarMenuItem>
-              <SidebarMenuButton asChild >
+            <SidebarMenuItem className="flex items-center gap-0 h-[68px]">
+              <SidebarMenuButton asChild className='h-[48px]'>
                 <Link href="/knowledge-base">
                   <Image src={userKnowledgeSVG} alt="" style={{ width: 14, height: 14 }} />
-                  <span className='text-[##0F0F0F] text-[16px]'>{t('sidebar.personalKnowledgeBase')}</span>
+                  <span className='text-[##0F0F0F] text-[16px] mr-2'>{t('sidebar.personalKnowledgeBase')}</span>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>

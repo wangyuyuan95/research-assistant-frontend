@@ -52,6 +52,7 @@ import { createClient } from '@/lib/supabase/client';
 import { useTheme } from 'next-themes';
 import { sendKnowledgeBaseDisplayData } from '@/lib/kb-integration';
 import { cn } from '@/lib/utils';
+import { divide } from 'lodash';
 
 export function NavUserWithTeams({
   user,
@@ -187,25 +188,31 @@ export function NavUserWithTeams({
   return (
     <Dialog open={showNewTeamDialog} onOpenChange={setShowNewTeamDialog}>
       <SidebarMenu className={cn('gap-0 h-[90px] justify-center', state === 'collapsed' ? "items-center" : "")}>
-        <SidebarMenuItem>
+        <SidebarMenuItem className={cn("h-[70px] gab-0", state === 'collapsed' ? "w-[48px!important] p-[0px!important] flex items-center" : "")}>
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <SidebarMenuButton
-                className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-              >
-                <Avatar className="h-8 w-8 rounded-lg">
+            {state === 'collapsed' && <DropdownMenuTrigger asChild>
+              <Avatar className={cn("rounded-lg bg-[#F2F5FF] gab-0", "h-[48px] w-[48px]")}>
+                <AvatarImage src={user.avatar} alt={user.name} />
+                <AvatarFallback className="rounded-lg">
+                  {getInitials(user.name)}
+                </AvatarFallback>
+              </Avatar>
+            </DropdownMenuTrigger>}
+            {state !== 'collapsed' && <DropdownMenuTrigger asChild>
+              <SidebarMenuButton className={cn("h-[70px]", "flex items-center")}>
+                <Avatar className={cn("rounded-lg bg-[#F2F5FF] gab-0", "h-[50px] w-[50px]")}>
                   <AvatarImage src={user.avatar} alt={user.name} />
                   <AvatarFallback className="rounded-lg">
                     {getInitials(user.name)}
                   </AvatarFallback>
                 </Avatar>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">{user.name}</span>
-                  <span className="truncate text-xs">{user.email}</span>
+                <div className="grid flex-1 text-left text-sm leading-tight ml-[22px]">
+                  <span className="truncate text-[#0F0F0F] font-medium">{user.name}</span>
+                  <span className="truncate text-[#7A7A7A] text-xs">{user.email}</span>
                 </div>
                 <ChevronsUpDown className="ml-auto size-4" />
               </SidebarMenuButton>
-            </DropdownMenuTrigger>
+            </DropdownMenuTrigger>}
             <DropdownMenuContent
               className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
               side={isMobile ? 'bottom' : 'top'}
