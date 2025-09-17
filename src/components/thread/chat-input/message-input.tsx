@@ -163,7 +163,7 @@ export const MessageInput = forwardRef<HTMLTextAreaElement, MessageInputProps>(
 
     return (
       <div className="flex flex-col w-full h-auto gap-4 justify-between">
-        <div className="flex gap-2 items-center px-2">
+        <div className="flex gap-2 items-center">
           <Textarea
             ref={ref}
             value={value}
@@ -171,7 +171,7 @@ export const MessageInput = forwardRef<HTMLTextAreaElement, MessageInputProps>(
             onKeyDown={handleKeyDown}
             placeholder={placeholder}
             className={cn(
-              'w-full bg-transparent dark:bg-transparent border-none shadow-none focus-visible:ring-0 px-2 py-1 text-base min-h-[40px] max-h-[200px] overflow-y-auto resize-none',
+              'w-full bg-transparent dark:bg-transparent border-none shadow-none focus-visible:ring-0 px-2 py-1 text-base min-h-[60px] max-h-[220px] overflow-y-auto resize-none',
               isDraggingOver ? 'opacity-40' : '',
             )}
             disabled={loading || (disabled && !isAgentRunning)}
@@ -179,8 +179,8 @@ export const MessageInput = forwardRef<HTMLTextAreaElement, MessageInputProps>(
           />
         </div>
 
-        <div className="flex items-center justify-between mt-1 ml-3 mb-1 pr-2">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
             <KnowledgeBaseSelector
               disabled={loading || (disabled && !isAgentRunning)}
             />
@@ -220,7 +220,7 @@ export const MessageInput = forwardRef<HTMLTextAreaElement, MessageInputProps>(
               </Tooltip>
             </TooltipProvider>
           }
-          <div className='flex items-center gap-2'>
+          <div className='flex items-center gap-3'>
             <ModelSelector
               selectedModel={selectedModel}
               onModelChange={onModelChange}
@@ -235,7 +235,7 @@ export const MessageInput = forwardRef<HTMLTextAreaElement, MessageInputProps>(
               onClick={isAgentRunning && onStopAgent ? onStopAgent : onSubmit}
               size="sm"
               className={cn(
-                'w-7 h-7 flex-shrink-0 self-end',
+                'h-[34px] w-[34px] p-0 bg-[none] flex-shrink-0 self-end',
                 isAgentRunning ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600',
                 (!value.trim() && uploadedFiles.length === 0 && !isAgentRunning) ||
                   loading ||

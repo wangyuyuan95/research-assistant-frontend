@@ -260,7 +260,7 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
           }}
         >
           <div className="w-full text-sm flex flex-col justify-between items-start rounded-lg py-1">            
-            <CardContent className={`w-full p-1.5 pb-2 ${bgColor} rounded-2xl border shadow-lg shadow-black/5`}>              
+            <CardContent className={`w-full px-[16px] pt-[12px] pb-[24px] ${bgColor} rounded-2xl border shadow-[0px_4px_20px_0px_#ECF1FF] dark:shadow-none`}>              
               {onAgentSelect && (                
                 <div className="mb-2 px-2">                  
                 <AgentSelector                    
@@ -272,12 +272,12 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
                 </div>              
               )}                            
               <AttachmentGroup                
-              files={uploadedFiles || []}                
-              sandboxId={sandboxId}                
-              onRemove={removeUploadedFile}                
-              layout="inline"                
-              maxHeight="216px"                
-              showPreviews={true}              
+                files={uploadedFiles || []}                
+                sandboxId={sandboxId}                
+                onRemove={removeUploadedFile}                
+                layout="inline"                
+                maxHeight="216px"                
+                showPreviews={true}              
               />
 
               <MessageInput

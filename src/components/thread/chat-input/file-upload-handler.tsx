@@ -15,6 +15,10 @@ import {
 } from '@/components/ui/tooltip';
 import { UploadedFile } from './chat-input';
 import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
+import attachmentsIcoSVG from '#/light/attachments-ico.svg';
+import darkAttachmentsIcoSVG from '#/dark/attachments-ico.svg';
 
 const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL || '';
 
@@ -191,6 +195,7 @@ export const FileUploadHandler = forwardRef<
   ) => {
     const { t } = useTranslation();
     const queryClient = useQueryClient();
+    const { theme, resolvedTheme } = useTheme();
     // Clean up object URLs when component unmounts
     useEffect(() => {
       return () => {
@@ -242,17 +247,17 @@ export const FileUploadHandler = forwardRef<
                 onClick={handleFileUpload}
                 variant="ghost"
                 size="default"
-                className="h-7 rounded-md text-muted-foreground"
+                className={`h-[34px] w-[34px] p-0 bg-[none]`}
                 disabled={
                   loading || (disabled && !isAgentRunning) || isUploading
                 }
               >
                 {isUploading ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <Loader2 className="h-[34px] w-[34px] animate-spin" />
                 ) : (
-                  <Paperclip className="h-4 w-4" />
+                  resolvedTheme === 'dark' ? <Image src={darkAttachmentsIcoSVG} alt="" style={{ width: 34, height: 34 }} />
+                  : <Image src={attachmentsIcoSVG} alt="" style={{ width: 34, height: 34 }} />
                 )}
-                <span className="text-sm sm:block hidden">{t('attachments')}</span>
               </Button>
             </TooltipTrigger>
             <TooltipContent side="top">

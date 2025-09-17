@@ -171,7 +171,7 @@ function DashboardContent() {
   return (
     <>
       <ModalProviders />
-      <div className="flex flex-col h-screen w-full bg-(image:--BG)">
+      <div className="flex flex-col h-screen w-full bg-(image:--BG) bg-no-repeat bg-left-top bg-cover">
         {isMobile && (
           <div className="absolute top-4 left-4 z-10">
             <Tooltip>

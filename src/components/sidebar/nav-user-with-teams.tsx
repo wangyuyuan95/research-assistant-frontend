@@ -200,7 +200,7 @@ export function NavUserWithTeams({
             </DropdownMenuTrigger>}
             {state !== 'collapsed' && <DropdownMenuTrigger asChild>
               <SidebarMenuButton className={cn("h-[70px]", "flex items-center")}>
-                <Avatar className={cn("rounded-lg bg-[#F2F5FF] gab-0", "h-[50px] w-[50px]")}>
+                <Avatar className={cn("rounded-lg bg-[#F2F5FF] dark:bg-[#50545A] gab-0", "h-[50px] w-[50px]")}>
                   <AvatarImage src={user.avatar} alt={user.name} />
                   <AvatarFallback className="rounded-lg">
                     {getInitials(user.name)}

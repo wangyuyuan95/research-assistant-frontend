@@ -63,10 +63,6 @@
   --animate-elliptical-orbit: elliptical-orbit 20s linear infinite;
 
 
-  /* --QuickStartRefresh: var(--QuickStartRefresh-img); */
-
-
-
   @keyframes orbit {
     0% {
       transform: rotate(calc(var(--angle) * 1deg))
@@ -233,7 +229,7 @@
 
 :root {
   --background: #F7F7F7;
-  --background-img: url(/light/BG.png) no-repeat left top / 100% 100%;
+  --background-img: url(/light/BG.png);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -243,8 +239,9 @@
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(54.65% 0.246 262.87);
   --secondary-foreground: oklch(0.205 0 0);
-  --muted: #0F0F0F
+  --muted: #0F0F0F;
   --muted-foreground: oklch(0.556 0 0);
+  --muted-placeholder: #BCBCBC;
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.145 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -258,7 +255,7 @@
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
-  --sidebar: oklch(100% 0.00011 271.152);
+  --sidebar: #ffffff;
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
@@ -284,11 +281,12 @@
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(54.65% 0.246 262.87);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
+  --muted: #FFFFFF;
   --muted-foreground: oklch(0.708 0 0);
+  --muted-placeholder: #FFFFFF;
   --accent: oklch(27.39% 0.005 286.03);
   --accent-foreground: oklch(98.46% 0.002 247.84)
-    --destructive: oklch(0.396 0.141 25.723);
+  --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
   --border: oklch(0.269 0 0);
   --input: oklch(0.269 0 0);
@@ -298,7 +296,7 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(21.03% 0.006 285.89);
+  --sidebar: #202426;
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);

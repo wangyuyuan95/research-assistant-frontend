@@ -85,7 +85,7 @@ export function AttachmentGroup({
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className={layout === 'inline' ? "mb-3 py-1 px-0.5" : "mt-4"}
+                className={layout === 'inline' ? "mb-[12px]" : "mt-4"}
             />
         );
     }
@@ -350,7 +350,7 @@ export function AttachmentGroup({
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
-                    className={layout === 'inline' ? "mb-3 py-1 px-0.5" : "mt-4"}
+                    className={layout === 'inline' ? "mb-[12px]" : "mt-4"}
                 >
                     {renderContent()}
                 </motion.div>

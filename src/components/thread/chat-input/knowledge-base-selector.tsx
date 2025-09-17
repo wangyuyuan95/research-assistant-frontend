@@ -19,7 +19,8 @@ import { Check, ChevronDown, Search, Database, CheckSquare, Square } from 'lucid
 import { cn } from '@/lib/utils';
 import { useKnowledgeBaseSelection } from '@/hooks/react-query/knowledge-base/use-knowledge-base-selection';
 import { useTranslation } from 'react-i18next';
-
+import Image from 'next/image';
+import knowledgeIcoSVG from '#/knowledge-ico.svg';
 interface KnowledgeBaseSelectorProps {
   className?: string;
   disabled?: boolean;
@@ -121,14 +122,14 @@ export const KnowledgeBaseSelector: React.FC<KnowledgeBaseSelectorProps> = ({
                 variant="ghost"
                 size="sm"
                 className={cn(
-                  'h-7 px-2 text-xs font-normal justify-between min-w-[80px] max-w-[200px]',
+                  'h-8 px-3 text-[#0F0F0F] dark:text-[#FFFFFF] text-[16px] font-normal justify-between items-center min-w-[80px] max-w-[200px] bg-[#F2F5FF] dark:bg-[#50545A] rounded-[17px]',
                   selectedCount > 0 ? 'text-primary' : 'text-muted-foreground',
                   className
                 )}
                 disabled={disabled || isLoading}
               >
                 <div className="flex items-center gap-1.5 truncate">
-                  <Database className="h-3 w-3 flex-shrink-0" />
+                  <Image src={knowledgeIcoSVG} alt="" style={{ width: 18, height: 26, marginTop: 9 }} />
                   <span className="truncate">{getDisplayText()}</span>
                 </div>
                 <ChevronDown className="h-3 w-3 flex-shrink-0" />

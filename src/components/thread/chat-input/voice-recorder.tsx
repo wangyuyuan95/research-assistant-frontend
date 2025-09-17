@@ -2,7 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Mic, Square, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTranscription } from '@/hooks/react-query/transcription/use-transcription';
-
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
+import voiceIcoSVG from '#/light/voice-ico.svg';
+import darkVoiceIcoSVG from '#/dark/voice-ico.svg';
 interface VoiceRecorderProps {
     onTranscription: (text: string) => void;
     disabled?: boolean;
@@ -14,6 +17,7 @@ export const VoiceRecorder: React.FC<VoiceRecorderProps> = ({
     onTranscription,
     disabled = false,
 }) => {
+    const { theme, resolvedTheme } = useTheme();
     const [state, setState] = useState<'idle' | 'recording' | 'processing'>('idle');
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const chunksRef = useRef<Blob[]>([]);
@@ -147,23 +151,24 @@ export const VoiceRecorder: React.FC<VoiceRecorderProps> = ({
     const getIcon = () => {
         switch (state) {
             case 'recording':
-                return <Square className="h-4 w-4" />;
+                return <Square className="h-[34px] w-[34px]" />
             case 'processing':
-                return <Loader2 className="h-4 w-4 animate-spin" />;
+                return <Loader2 className="h-[34px] w-[34px] animate-spin" />;
             default:
-                return <Mic className="h-4 w-4" />;
+                if(resolvedTheme === 'dark') return <Image src={darkVoiceIcoSVG} alt="" style={{ width: 34, height: 34 }} />;
+                return <Image src={voiceIcoSVG} alt="" style={{ width: 34, height: 34 }} />;
         }
     };
 
     return (
         <Button
             type="button"
-            variant="ghost"
+            variant="link"
             size="sm"
             onClick={handleClick}
             onContextMenu={handleRightClick}
             disabled={disabled || state === 'processing'}
-            className={`h-8 w-8 p-0 transition-colors ${getButtonClass()}`}
+            className={`h-[34px] w-[34px] p-0 bg-[none] ${getButtonClass()} rounded-[17px]`}
             title={state === 'recording' ? 'Click to stop' : 'Click to start recording'}
         >
             {getIcon()}
