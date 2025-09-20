@@ -805,7 +805,7 @@ export default function ThreadPage({
 
         <div
           className={cn(
-            "fixed bottom-0 z-10 px-8 pt-8 transition-all duration-200 ease-in-out",
+            "fixed bottom-3 z-10 px-8 pt-6 transition-all duration-200 ease-in-out",
             leftSidebarState === 'expanded' ? 'left-[64px] lg:left-[286px]' : 'left-[64px]',
             isMobile ? 'left-0 right-0' : ''
           )}
