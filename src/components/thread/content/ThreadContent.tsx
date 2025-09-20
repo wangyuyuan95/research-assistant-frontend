@@ -353,8 +353,8 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
     const { preloadFiles } = useFilePreloader();
 
     const containerClassName = isPreviewMode 
-        ? "flex-1 overflow-y-auto scrollbar-thin scrollbar-track-secondary/0 scrollbar-thumb-primary/10 scrollbar-thumb-rounded-full hover:scrollbar-thumb-primary/10 px-6 py-4 pb-72"
-        : "flex-1 overflow-y-auto scrollbar-thin scrollbar-track-secondary/0 scrollbar-thumb-primary/10 scrollbar-thumb-rounded-full hover:scrollbar-thumb-primary/10 px-6 py-4 pb-72 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60";
+        ? "flex-1 overflow-y-auto scrollbar-thin scrollbar-track-secondary/0 scrollbar-thumb-primary/10 scrollbar-thumb-rounded-full hover:scrollbar-thumb-primary/10 px-6 pt-[26px] pb-[248px]"
+        : "flex-1 overflow-y-auto scrollbar-thin scrollbar-track-secondary/0 scrollbar-thumb-primary/10 scrollbar-thumb-rounded-full hover:scrollbar-thumb-primary/10 px-6 pt-[26px] pb-[248px] bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60";
 
     // In playback mode, we use visibleMessages instead of messages
     const rawDisplayMessages = readOnly && visibleMessages ? visibleMessages : messages;

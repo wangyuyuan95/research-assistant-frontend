@@ -123,7 +123,7 @@ export function SiteHeader({
   return (
     <>
       <header className={cn(
-        "bg-background sticky top-0 flex h-14 shrink-0 items-center gap-2 z-20 w-full",
+        "bg-background sticky top-0 flex h-[64px] pt-[28px] shrink-0 items-center gap-2 z-20 w-full px-6",
         isMobile && "px-2"
       )}>
         {isMobile && (
@@ -171,7 +171,7 @@ export function SiteHeader({
             <Skeleton className="h-5 w-32" />
           ) : (
             <div
-              className="text-base font-medium text-muted-foreground hover:text-foreground cursor-pointer flex items-center"
+              className="text-[20px] font-medium text-[#2E2E2E] hover:text-foreground cursor-pointer flex items-center"
               onClick={startEditing}
               title="Click to rename project"
             >
@@ -240,7 +240,7 @@ export function SiteHeader({
                     variant="ghost"
                     size="icon"
                     onClick={onToggleSidePanel}
-                    className="h-9 w-9 cursor-pointer"
+                    className="h-9 w-9 cursor-pointer hover:bg-[#F0F0F0] hover:border-[1px] hover:border-solid hover:border-[#EDEDED] rounded-2xl"
                   >
                     <PanelRightOpen className="h-4 w-4" />
                   </Button>
