@@ -942,7 +942,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                             {/* Logo positioned above the loader */}
                                             <div className="flex items-center">
                                                 <div className="rounded-md flex items-center justify-center">
-                                                    {agentAvatar}
+                                                    <Image src={sliderLogoSVG} alt="" style={{ width: 18, height: 18 }} />
                                                 </div>
                                                 <p className='ml-2 text-sm text-muted-foreground'>{agentName}</p>
                                             </div>
@@ -962,7 +962,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                         {/* Logo positioned above the tool call */}
                                         <div className="flex justify-start">
                                             <div className="rounded-md flex items-center justify-center">
-                                                {agentAvatar}
+                                                <Image src={sliderLogoSVG} alt="" style={{ width: 18, height: 18 }} />
                                             </div>
                                             <p className='ml-2 text-sm text-muted-foreground'>{agentName}</p>
                                         </div>
@@ -987,7 +987,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                         {/* Logo positioned above the streaming indicator */}
                                         <div className="flex justify-start">
                                             <div className="rounded-md flex items-center justify-center">
-                                                {agentAvatar}
+                                                <Image src={sliderLogoSVG} alt="" style={{ width: 18, height: 18 }} />
                                             </div>
                                             <p className='ml-2 text-sm text-muted-foreground'>{agentName}</p>
                                         </div>

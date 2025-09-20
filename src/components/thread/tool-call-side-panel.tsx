@@ -474,7 +474,7 @@ export function ToolCallSidePanel({
     return (
       <div
         className={cn(
-          'fixed inset-y-0 right-0 border-l flex flex-col z-30 h-screen transition-all duration-200 ease-in-out bg-[#FFFFFF] dark:bg-[#2A2F31]',
+          'fixed inset-y-0 top-[24px] right-0 border-1 border-solid border-[#EDEDED] rounded-2xl flex flex-col z-30 h-[calc(100vh-48px)] transition-all duration-200 ease-in-out bg-[#FFFFFF] dark:bg-[#2A2F31]',
           isMobile ? 'w-full' : '',
           !isOpen && 'translate-x-full',
         )}
@@ -485,7 +485,6 @@ export function ToolCallSidePanel({
             <div className="pt-4 pl-4 pr-4">
               <div className="flex items-center justify-between">
                 <div className="ml-2 flex items-center gap-2">
-                  <Computer className="h-4 w-4" />
                   <h2 className="text-md font-medium text-zinc-900 dark:text-zinc-100">
                     {agentName ? t('computer.agentComputer', { agentName }) : t('computer.title')}
                   </h2>
@@ -521,7 +520,6 @@ export function ToolCallSidePanel({
           <div className="pt-4 pl-4 pr-4">
             <div className="flex items-center justify-between">
               <div className="ml-2 flex items-center gap-2">
-                <Computer className="h-4 w-4" />
                 <h2 className="text-md font-medium text-zinc-900 dark:text-zinc-100">
                   {agentName ? t('computer.agentComputer', { agentName }) : t('computer.title')}
                 </h2>
@@ -539,9 +537,6 @@ export function ToolCallSidePanel({
           <div className="flex flex-col items-center justify-center flex-1 p-8">
             <div className="flex flex-col items-center space-y-4 max-w-sm text-center">
               <div className="relative">
-                <div className="w-16 h-16 bg-zinc-100 dark:bg-zinc-800 rounded-full flex items-center justify-center">
-                  <Computer className="h-8 w-8 text-zinc-400 dark:text-zinc-500" />
-                </div>
                 <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-zinc-200 dark:bg-zinc-700 rounded-full flex items-center justify-center">
                   <div className="w-2 h-2 bg-zinc-400 dark:text-zinc-500 rounded-full"></div>
                 </div>
@@ -568,7 +563,6 @@ export function ToolCallSidePanel({
             <div className="pt-4 pl-4 pr-4">
               <div className="flex items-center justify-between">
                 <div className="ml-2 flex items-center gap-2">
-                  <Computer className="h-4 w-4" />
                   <h2 className="text-md font-medium text-zinc-900 dark:text-zinc-100">
                     {agentName ? t('computer.agentComputer', { agentName }) : t('computer.title')}
                   </h2>
@@ -604,7 +598,6 @@ export function ToolCallSidePanel({
           <div className="pt-4 pl-4 pr-4">
             <div className="flex items-center justify-between">
               <div className="ml-2 flex items-center gap-2">
-                <Computer className="h-4 w-4" />
                 <h2 className="text-md font-medium text-zinc-900 dark:text-zinc-100">
                   {agentName ? t('computer.agentComputer', { agentName }) : t('computer.title')}
                 </h2>
@@ -660,7 +653,6 @@ export function ToolCallSidePanel({
         <div className="p-3">
           <div className="flex items-center justify-between">
             <div className="ml-2 flex items-center gap-2">
-              <Computer className="h-4 w-4" />
               <h2 className="text-md font-medium text-zinc-900 dark:text-zinc-100">
                 {agentName ? t('computer.agentComputer', { agentName }) : t('computer.title')}
               </h2>
@@ -717,20 +709,20 @@ export function ToolCallSidePanel({
   return (
           <div
         className={cn(
-          'fixed inset-y-0 right-0 border-l flex flex-col z-30 h-screen transition-all duration-200 ease-in-out bg-[#FFFFFF] dark:bg-[#2A2F31]',
+          'fixed inset-y-0 top-[24px] right-0 border-1 border-solid border-[#EDEDED] rounded-2xl flex flex-col z-30 h-[calc(100vh-48px)] transition-all duration-200 ease-in-out bg-[#FFFFFF] dark:bg-[#2A2F31]',
           isMobile ? 'w-full' : '',
           !isOpen && 'translate-x-full',
         )}
         style={!isMobile ? { width: `${sidePanelWidth}vw` } : undefined}
       >
-      <div className="flex-1 flex flex-col overflow-hidden bg-background">
+      <div className="flex-1 flex flex-col overflow-hidden">
         {renderContent()}
       </div>
 
       {(displayTotalCalls > 1 || (isCurrentToolStreaming && totalCompletedCalls > 0)) && (
         <div
           className={cn(
-            'border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900',
+            '',
             isMobile ? 'p-3' : 'p-4 space-y-2',
           )}
         >
@@ -838,14 +830,14 @@ export function ToolCallSidePanel({
 
               <div className="relative w-full">
                 {(showJumpToLive || showJumpToLatest) && (
-                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-10">
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10">
                     {showJumpToLive && (
-                      <Button className='rounded-full bg-red-500 hover:bg-red-400 text-white' onClick={jumpToLive}>
+                      <Button className='rounded-full bg-red-500 hover:bg-red-400 !text-white' onClick={jumpToLive}>
                         {t('activity.jumpToLive')}
                       </Button>
                     )}
                     {showJumpToLatest && (
-                      <Button className='rounded-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white ' onClick={jumpToLatest}>
+                      <Button className='rounded-md bg-[#3363FF] hover:bg-[#3363FF]-700 dark:bg-blue-500 dark:hover:bg-blue-600 !text-white ' onClick={jumpToLatest}>
                         {t('activity.jumpToLatest')}
                       </Button>
                     )}
@@ -858,7 +850,18 @@ export function ToolCallSidePanel({
                   step={1}
                   value={[displayIndex]}
                   onValueChange={handleSliderChange}
-                  className="w-full [&>span:first-child]:h-1 [&>span:first-child]:bg-zinc-200 dark:[&>span:first-child]:bg-zinc-800 [&>span:first-child>span]:bg-zinc-500 dark:[&>span:first-child>span]:bg-zinc-400 [&>span:first-child>span]:h-1"
+                  className="w-full
+                    [&>span:first-child]:h-[6px]
+                    [&>span:first-child]:rounded-full
+                    [&>span:first-child]:bg-[#F2F5FF]
+                    dark:[&>span:first-child]:bg-[#2E3336]
+                    [&>span:first-child>span]:bg-[#3363FF]
+                    [&>span:first-child>span]:h-[6px]
+                    [&>span:nth-child(2)>span]:bg-gradient-to-b
+                    [&>span:nth-child(2)>span]:from-[#2387FF]
+                    [&>span:nth-child(2)>span]:to-[#E856FF]
+                    [&>span:nth-child(2)>span>span]:!border-[none]
+                  "
                 />
               </div>
             </div>
