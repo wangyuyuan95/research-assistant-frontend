@@ -207,8 +207,8 @@ export function NavUserWithTeams({
                   </AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight ml-[22px]">
-                  <span className="truncate text-[#0F0F0F] font-medium">{user.name}</span>
-                  <span className="truncate text-[#7A7A7A] text-xs">{user.email}</span>
+                  <span className="truncate text-[#0F0F0F] dark:text-[#FFFFFF] font-medium">{user.name}</span>
+                  <span className="truncate text-[#7A7A7A] dark:text-[#303338] text-xs">{user.email}</span>
                 </div>
                 <ChevronsUpDown className="ml-auto size-4" />
               </SidebarMenuButton>

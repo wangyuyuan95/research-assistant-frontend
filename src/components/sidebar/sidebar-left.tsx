@@ -142,7 +142,7 @@ export function SidebarLeft({
           <NavAgents />
         </div>
       </SidebarContent>
-      <SidebarFooter className={cn("w-full h-[159px] px-2 m-0 bg-[#FFFFFF] shadow-[0px_4px_20px_0px_#ECF1FF] rounded-xl gap-0")}>
+      <SidebarFooter className={cn("w-full h-[159px] px-2 m-0 bg-[#FFFFFF] dark:bg-[#303338] shadow-[0px_4px_20px_0px_#ECF1FF] dark:shadow-[none] rounded-xl gap-0")}>
         {isKBEnabled && (
           <SidebarMenu className={cn('gap-0 h-[68px] justify-center', state === 'collapsed' ? "items-center" : "")}>
             {/* <Separator/> */}
@@ -158,7 +158,7 @@ export function SidebarLeft({
           </SidebarMenu>
         )}
         <div className='w-full px-2'>
-          <div className='h-[1px] bg-[#F3F3F3]'></div>
+          <div className='h-[1px] bg-[#F3F3F3] dark:bg-[#383A41]'></div>
         </div>
         <NavUserWithTeams user={user} state={state} />
       </SidebarFooter>

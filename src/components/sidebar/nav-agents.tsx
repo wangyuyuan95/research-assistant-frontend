@@ -443,19 +443,20 @@ export function NavAgents() {
               const isSelected = selectedThreads.has(thread.threadId);
 
               return (
-                <SidebarMenuItem key={`thread-${thread.threadId}`} className="!w-[48px] !h-[48px] mb-4">
+                <SidebarMenuItem key={`thread-${thread.threadId}`} className="mb-4">
                   {state === 'collapsed' ? (
-                    <Tooltip>
-                      <TooltipTrigger>
-                        <div className="relative">
-                          <SidebarMenuButton
-                            className={`relative !w-[48px] !h-[48px] rounded-[12px] m-0 p-0 ${
-                              isActive ? '!bg-[#F2F5FF] dark:!bg-[#303338] font-medium' :
-                                isSelected ? '!bg-[#F2F5FF] dark:!bg-[#303338]' : ''
-                            }`}
-                          >
+                    <div className="relative !h-[48px] flex items-center justify-center">
+                      <SidebarMenuButton
+                        asChild
+                         className="relative"
+                      >
+                        <Tooltip>
+                          <TooltipTrigger>
                             <Link
-                              className="flex items-center m-0 p-0"
+                              className={`flex items-center justify-center m-0 p-0 !w-[48px] !h-[48px] rounded-[12px] ${
+                                isActive ? '!bg-[#F2F5FF] dark:!bg-[#303338] font-medium' :
+                                  isSelected ? '!bg-[#F2F5FF] dark:!bg-[#303338]' : ''
+                              }`}
                               href={thread.url}
                               onClick={(e) =>
                                 handleThreadClick(e, thread.threadId, thread.url)
@@ -465,18 +466,18 @@ export function NavAgents() {
                                 <Loader2 className="h-4 w-4 animate-spin" />
                               ) : (
                                 !isMobile && (
-                                  <span className="!w-[48px] !h-[48px] block">
+                                  <span>
                                     {thread.projectName.charAt(0)}
                                   </span>
                                 )
                               )}
                               {isMobile && <span>{thread.projectName}</span>}
                             </Link>
-                          </SidebarMenuButton>
-                        </div>
-                      </TooltipTrigger>
-                      <TooltipContent>{thread.projectName}</TooltipContent>
-                    </Tooltip>
+                          </TooltipTrigger>
+                          <TooltipContent>{thread.projectName}</TooltipContent>
+                        </Tooltip>
+                      </SidebarMenuButton>
+                    </div>
                   ) : (
                     <div className="relative">
                       <SidebarMenuButton
