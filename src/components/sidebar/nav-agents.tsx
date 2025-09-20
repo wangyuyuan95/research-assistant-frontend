@@ -390,7 +390,7 @@ export function NavAgents() {
             ) : (
               <Link
                 href="/dashboard"
-                className="w-full bg-[#3363FF] hover:bg-[#3363FF]/70 text-[#FFFFFF] hover:text-[#FFFFFF]/70 text-[20px] font-normal rounded-md transition-all duration-100 flex items-center justify-center gap-1.5 h-[68px]"
+                className="w-full bg-[#3363FF] hover:bg-[#3363FF]/70 text-[#FFFFFF] hover:text-[#FFFFFF]/70 text-[18px] font-normal rounded-md transition-all duration-100 flex items-center justify-center gap-1.5 h-12"
               >
                 <Image src={addSVG} alt="" style={{ width: 14, height: 14 }} />
                 <span>{t('sidebar.newChat')}</span>
@@ -407,7 +407,7 @@ export function NavAgents() {
             <Tooltip>
               <TooltipTrigger asChild>
                 <div>
-                  <SidebarMenuButton asChild className="w-full bg-[#3363FF] hover:bg-[#3363FF]/70 text-[#FFFFFF] hover:text-[#FFFFFF]/70 text-[20px] font-normal rounded-md transition-all duration-100 flex items-center justify-center h-[68px]">
+                  <SidebarMenuButton asChild className="w-full bg-[#3363FF] hover:bg-[#3363FF]/70 text-[#FFFFFF] hover:text-[#FFFFFF]/70 text-[18px] font-normal rounded-md transition-all duration-100 flex items-center justify-center h-12">
                     <Link href="/dashboard" className="flex items-center">
                       <Image src={addSVG} alt="" style={{ width: 14, height: 14 }} />
                     </Link>
@@ -420,7 +420,7 @@ export function NavAgents() {
         </div>
       )}
 
-      <SidebarGroup className='p-0 mt-[16px]'>
+      <SidebarGroup className='p-0 mt-3'>
         <SidebarMenu className='gap-0'>
 
         {isLoading ? (
@@ -443,7 +443,7 @@ export function NavAgents() {
               const isSelected = selectedThreads.has(thread.threadId);
 
               return (
-                <SidebarMenuItem key={`thread-${thread.threadId}`} className="mb-4">
+                <SidebarMenuItem key={`thread-${thread.threadId}`} className="mb-2">
                   {state === 'collapsed' ? (
                     <div className="relative !h-[48px] flex items-center justify-center">
                       <SidebarMenuButton
@@ -453,7 +453,7 @@ export function NavAgents() {
                         <Tooltip>
                           <TooltipTrigger>
                             <Link
-                              className={`flex items-center justify-center m-0 p-0 !w-[48px] !h-[48px] rounded-[12px] ${
+                              className={`flex items-center justify-center m-0 p-0 !w-10 !h-10 rounded-xl ${
                                 isActive ? '!bg-[#F2F5FF] dark:!bg-[#303338] font-medium' :
                                   isSelected ? '!bg-[#F2F5FF] dark:!bg-[#303338]' : ''
                               }`}

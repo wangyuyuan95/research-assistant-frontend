@@ -104,11 +104,11 @@ export function SidebarLeft({
   return (
     <Sidebar
       collapsible="icon"
-      className={cn("bg-[#FFFFFF] dark:bg-[#202426] pt-[28px] pb-[43px] border-r-0 backdrop-blur-sm [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']", state !== 'collapsed' ? "px-[32px]" : "px-[8px]")}
+      className={cn("bg-[#FFFFFF] dark:bg-[#202426] pt-5 pb-8 border-r-0 backdrop-blur-sm [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']", state !== 'collapsed' ? "px-6" : "px-2")}
       {...props}
     >
-      <SidebarHeader className={cn("mb-12", state === 'collapsed' ? "items-center" : "")}>
-        <div className={cn("flex h-[40px] items-center relative")}>
+      <SidebarHeader className={cn("mb-6", state === 'collapsed' ? "items-center" : "")}>
+        <div className={cn("flex h-8 items-center relative")}>
           <Link href="/dashboard" className="flex items-center">
             {(state === 'collapsed') && (
               <Image src={sliderLogoSVG} alt="" style={{ width: 38, height: 38 }} />
@@ -137,17 +137,17 @@ export function SidebarLeft({
           </div>
         </div>
       </SidebarHeader>
-      <SidebarContent className="overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] relative mb-10r">
+      <SidebarContent className="overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] relative mb-2">
         <div className="relative">
           <NavAgents />
         </div>
       </SidebarContent>
-      <SidebarFooter className={cn("w-full h-[159px] px-2 m-0 bg-[#FFFFFF] dark:bg-[#303338] shadow-[0px_4px_20px_0px_#ECF1FF] dark:shadow-[none] rounded-xl gap-0")}>
+      <SidebarFooter className={cn("w-full h-35 px-2 m-0 bg-[#FFFFFF] dark:bg-[#303338] shadow-[0px_4px_20px_0px_#ECF1FF] dark:shadow-[none] rounded-xl gap-0")}>
         {isKBEnabled && (
-          <SidebarMenu className={cn('gap-0 h-[68px] justify-center', state === 'collapsed' ? "items-center" : "")}>
+          <SidebarMenu className={cn('gap-0 h-15 justify-center', state === 'collapsed' ? "items-center" : "")}>
             {/* <Separator/> */}
-            <SidebarMenuItem className="flex items-center gap-0 h-[68px]">
-              <SidebarMenuButton asChild className='h-[48px]'>
+            <SidebarMenuItem className="flex items-center gap-0 h-14">
+              <SidebarMenuButton asChild className='h-14'>
                 <Link href="/knowledge-base">
                   <Image src={userKnowledgeSVG} alt="" style={{ width: 14, height: 14 }} />
                   <span className='text-[##0F0F0F] text-[16px] mr-2'>{t('sidebar.personalKnowledgeBase')}</span>

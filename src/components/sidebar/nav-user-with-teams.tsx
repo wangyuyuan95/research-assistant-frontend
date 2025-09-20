@@ -187,11 +187,11 @@ export function NavUserWithTeams({
 
   return (
     <Dialog open={showNewTeamDialog} onOpenChange={setShowNewTeamDialog}>
-      <SidebarMenu className={cn('gap-0 h-[90px] justify-center', state === 'collapsed' ? "items-center" : "")}>
-        <SidebarMenuItem className={cn("h-[70px] gab-0", state === 'collapsed' ? "w-[48px!important] p-[0px!important] flex items-center" : "")}>
+      <SidebarMenu className={cn('gap-0 h-20 justify-center', state === 'collapsed' ? "items-center" : "")}>
+        <SidebarMenuItem className={cn("h-16 gab-0", state === 'collapsed' ? "!w-10 p-[0px!important] flex items-center" : "")}>
           <DropdownMenu>
             {state === 'collapsed' && <DropdownMenuTrigger asChild>
-              <Avatar className={cn("rounded-lg bg-[#F2F5FF] gab-0", "h-[48px] w-[48px]")}>
+              <Avatar className={cn("rounded-lg bg-[#F2F5FF] gab-0", "h-10 w-10")}>
                 <AvatarImage src={user.avatar} alt={user.name} />
                 <AvatarFallback className="rounded-lg">
                   {getInitials(user.name)}
@@ -199,8 +199,8 @@ export function NavUserWithTeams({
               </Avatar>
             </DropdownMenuTrigger>}
             {state !== 'collapsed' && <DropdownMenuTrigger asChild>
-              <SidebarMenuButton className={cn("h-[70px]", "flex items-center")}>
-                <Avatar className={cn("rounded-lg bg-[#F2F5FF] dark:bg-[#50545A] gab-0", "h-[50px] w-[50px]")}>
+              <SidebarMenuButton className={cn("h-20", "flex items-center")}>
+                <Avatar className={cn("rounded-lg bg-[#F2F5FF] dark:bg-[#50545A] gab-0", "h-10 w-10")}>
                   <AvatarImage src={user.avatar} alt={user.name} />
                   <AvatarFallback className="rounded-lg">
                     {getInitials(user.name)}
@@ -234,7 +234,6 @@ export function NavUserWithTeams({
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
-
               {/* Teams Section */}
               {personalAccount && (
                 <>
