@@ -179,7 +179,7 @@ export function SiteHeader({
             <Skeleton className="h-5 w-32" />
           ) : (
             <div
-              className="text-[20px] font-medium text-[#2E2E2E] hover:text-foreground cursor-pointer flex items-center"
+              className="text-[20px] font-medium text-[#2E2E2E] dark:text-[#FFFFFF] hover:text-foreground cursor-pointer flex items-center"
               onClick={startEditing}
               title="Click to rename project"
             >
@@ -188,7 +188,7 @@ export function SiteHeader({
           )}
         </div>
 
-        <div className="flex items-center gap-1 pr-4">
+        <div className="flex items-center gap-2">
           {/* Debug mode indicator */}
           {debugMode && (
             <div className="bg-amber-500 text-black text-xs px-2 py-0.5 rounded-md mr-2">
@@ -217,7 +217,7 @@ export function SiteHeader({
                     variant="ghost"
                     size="icon"
                     onClick={onViewFiles}
-                    className="h-9 w-9 cursor-pointer"
+                    className="h-9 w-9 cursor-pointer hover:bg-[#F0F0F0] dark:hover:bg-[#202426] hover:border-[1px] hover:border-solid hover:border-[#EDEDED] dark:hover:border-[#2A2F31] rounded-2xl"
                   >
                     {resolvedTheme !== 'dark' && <Image className="h-4 w-4" src={folderOpenSvg} alt="" />}
                     {resolvedTheme === 'dark' && <Image className="h-4 w-4" src={darkFolderOpenSvg} alt="" />}
@@ -234,7 +234,7 @@ export function SiteHeader({
                     variant="ghost"
                     size="icon"
                     onClick={openShareModal}
-                    className="h-9 w-9 cursor-pointer"
+                    className="h-9 w-9 cursor-pointer hover:bg-[#F0F0F0] dark:hover:bg-[#202426] hover:border-[1px] hover:border-solid hover:border-[#EDEDED] dark:hover:border-[#2A2F31] rounded-2xl"
                   >
                     {resolvedTheme !== 'dark' && <Image className="h-4 w-4" src={shareIcoSvg} alt="" />}
                     {resolvedTheme === 'dark' && <Image className="h-4 w-4" src={darkShareIcoSvg} alt="" />}
@@ -251,7 +251,7 @@ export function SiteHeader({
                     variant="ghost"
                     size="icon"
                     onClick={onToggleSidePanel}
-                    className="h-9 w-9 cursor-pointer hover:bg-[#F0F0F0] hover:border-[1px] hover:border-solid hover:border-[#EDEDED] rounded-2xl"
+                    className="h-9 w-9 cursor-pointer hover:bg-[#F0F0F0] dark:hover:bg-[#202426] hover:border-[1px] hover:border-solid hover:border-[#EDEDED] dark:hover:border-[#2A2F31] rounded-2xl"
                   >
                     {resolvedTheme !== 'dark' && <Image className="h-4 w-4" src={rightOpenSvg} alt="" />}
                     {resolvedTheme === 'dark' && <Image className="h-4 w-4" src={darkRightOpenSvg} alt="" />}

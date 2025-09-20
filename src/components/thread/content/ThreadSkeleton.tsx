@@ -39,7 +39,7 @@ export function ThreadSkeleton({
 
                 {/* Skeleton Chat Messages */}
                 <div className="flex-1 overflow-y-auto px-6 py-4 pb-[5.5rem]">
-                    <div className="mx-auto max-w-3xl space-y-6">
+                    <div className="mx-auto max-w-4xl space-y-6">
                         {/* Generate multiple message skeletons based on messageCount */}
                         {Array.from({ length: messageCount }).map((_, index) => (
                             <React.Fragment key={index}>

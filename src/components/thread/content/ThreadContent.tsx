@@ -22,6 +22,12 @@ import { useTranslation } from 'react-i18next';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { formatTimestamp } from '@/components/thread/tool-views/utils';
 import { shouldHideMessage } from '@/components/thread/utils/hidden-message';
+import Image from 'next/image'
+import copyIcoSvg from '#/copy-ico.svg';
+import sliderLogoSVG from '#/sliderLogo.svg';
+
+
+
 
 // Define the set of tags whose raw XML should be hidden during streaming
 const HIDE_STREAMING_XML_TAGS = new Set([
@@ -146,24 +152,26 @@ export function renderMarkdownContent(
                     <div key={`tool-${match.index}-${index}`} className="my-1">
                         <button
                             onClick={() => handleToolClick(messageId, toolName)}
-                            className="inline-flex items-center gap-1.5 py-1 px-1 text-xs text-muted-foreground bg-muted hover:bg-muted/80 rounded-md transition-colors cursor-pointer border border-neutral-200 dark:border-neutral-700/50"
+                            // className="inline-flex items-center gap-1.5 py-1 px-1 text-xs text-muted-foreground bg-muted hover:bg-muted/80 rounded-md transition-colors cursor-pointer border border-neutral-200 dark:border-neutral-700/50"
+                            className="inline-flex items-center gap-1.5 py-1 px-1 text-xs text-[#838990] dark:text-[#FFFFFF] bg-[#F0F0F0] dark:bg-[#202426] hover:bg-[#F0F0F0]/80 dark:hover:bg-[#202426]/80 rounded-md transition-colors cursor-pointer border border-solid border-[#EDEDED] dark:border-[#2A2F31]"
                         >
-                            <div className='border-2 bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800 flex items-center justify-center p-0.5 rounded-sm border-neutral-400/20 dark:border-neutral-600'>
-                                <IconComponent className="h-3.5 w-3.5 text-muted-foreground flex-shrink-0" />
+                            {/* <div className='border-1 bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800 flex items-center justify-center p-0.5 rounded-sm border-neutral-400/20 dark:border-neutral-600'> */}
+                            <div className='flex items-center justify-center p-0.5 rounded-sm'>
+                                <IconComponent className="h-4 w-4 text-muted-foreground flex-shrink-0" />
                             </div>
-                            <span className="font-mono text-xs text-foreground">{t ? getLocalizedToolName(toolName, t) : getUserFriendlyToolName(toolName)}</span>
+                            <span className="font-mono text-[#666B71] dark:text-[#FFFFFF]">{t ? getLocalizedToolName(toolName, t) : getUserFriendlyToolName(toolName)}</span>
                             {paramDisplay && (
                                 paramDisplay.length > 30 ? (
                                     <Tooltip>
                                         <TooltipTrigger asChild>
-                                            <span className="ml-1 text-muted-foreground truncate max-w-[200px] cursor-help">{paramDisplay}</span>
+                                            <span className="ml-1 text-[#838990] dark:text-[#FFFFFF] truncate max-w-[200px] cursor-help">{paramDisplay}</span>
                                         </TooltipTrigger>
                                         <TooltipContent>
                                             {paramDisplay}
                                         </TooltipContent>
                                     </Tooltip>
                                 ) : (
-                                    <span className="ml-1 text-muted-foreground truncate max-w-[200px]" title={paramDisplay}>{paramDisplay}</span>
+                                    <span className="ml-1 text-[#838990] dark:text-[#FFFFFF] truncate max-w-[200px]" title={paramDisplay}>{paramDisplay}</span>
                                 )
                             )}
                         </button>
@@ -240,10 +248,10 @@ export function renderMarkdownContent(
                 <div key={toolCallKey} className="my-1">
                     <button
                         onClick={() => handleToolClick(messageId, toolName)}
-                        className="inline-flex items-center gap-1.5 py-1 px-1 text-xs text-muted-foreground bg-muted hover:bg-muted/80 rounded-md transition-colors cursor-pointer border border-neutral-200 dark:border-neutral-700/50"
+                        className="inline-flex items-center gap-1.5 py-1 px-1 text-xs text-[#838990] dark:text-[#FFFFFF] bg-[#F0F0F0] dark:bg-[#202426] hover:bg-[#F0F0F0]/80 dark:hover:bg-[#202426]/80 rounded-md transition-colors cursor-pointer border border-solid border-[#EDEDED] dark:border-[#2A2F31]"
                     >
-                        <div className='border-2 bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800 flex items-center justify-center p-0.5 rounded-sm border-neutral-400/20 dark:border-neutral-600'>
-                            <IconComponent className="h-3.5 w-3.5 text-muted-foreground flex-shrink-0" />
+                        <div className='flex items-center justify-center p-0.5 rounded-sm'>
+                            <IconComponent className="h-4 w-4 text-muted-foreground flex-shrink-0" />
                         </div>
                         <span className="font-mono text-xs text-foreground">{t ? getLocalizedToolName(toolName, t) : getUserFriendlyToolName(toolName)}</span>
                         {paramDisplay && (
@@ -431,7 +439,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                     className={containerClassName}
                     onScroll={handleScroll}
                 >
-                    <div className="mx-auto max-w-3xl md:px-8 min-w-0">
+                    <div className="mx-auto max-w-4xl min-w-0">
                         <div className="space-y-8 min-w-0">
                             {(() => {
 
@@ -561,8 +569,8 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                         const cleanContent = messageContent.replace(/\[Uploaded File: .*?\]/g, '').trim();
 
                                         return (
-                                            <div key={group.key} className="flex flex-col items-end gap-1">
-                                                <div className="shadow flex max-w-[85%] rounded-xl bg-primary/10 px-4 py-3 break-words overflow-hidden">
+                                            <div key={group.key} className="flex flex-col items-end gap-2 mb-3">
+                                                <div className="flex max-w-[85%] bg-[#FFFFFF] dark:bg-[#202426] rounded-xl border-1 border-[##EDEDED] dark:border-[#2A2F31] border-solid  p-4 break-words overflow-hidden">
                                                     <div className="space-y-3 min-w-0 flex-1">
                                                         {cleanContent && (
                                                             <Markdown className="text-sm prose prose-sm dark:prose-invert chat-markdown max-w-none [&>:first-child]:mt-0 prose-headings:mt-3 break-words overflow-wrap-anywhere">{cleanContent}</Markdown>
@@ -586,9 +594,9 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                                                     onClick={() => copyUserMessage(cleanContent, message.message_id)}
                                                                 >
                                                                     {userCopiedMap[message.message_id] ? (
-                                                                        <Check className="h-2.5 w-2.5 text-green-500" />
+                                                                        <Check className="h-4 w-4 text-green-500" />
                                                                     ) : (
-                                                                        <Copy className="h-2.5 w-2.5" />
+                                                                        <Image className="h-4 w-4" src={copyIcoSvg} alt="" />
                                                                     )}
                                                                 </Button>
                                                             </TooltipTrigger>
@@ -607,9 +615,9 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                                     {/* Logo positioned above the message content - ONLY ONCE PER GROUP */}
                                                     <div className="flex items-center">
                                                         <div className="rounded-md flex items-center justify-center">
-                                                            {agentAvatar}
+                                                           <Image src={sliderLogoSVG} alt="" style={{ width: 18, height: 18 }} /> 
                                                         </div>
-                                                        <p className='ml-2 text-sm text-muted-foreground'>{agentName ? agentName : t('common.default_agent_name')}</p>
+                                                        <p className='ml-2 text-sm font-bold text-[#0F0F0F] dark:text-[#FFFFFF]'>{agentName ? agentName : t('common.default_agent_name')}</p>
                                                     </div>
                                                     
                                                     {/* Message content - ALL messages in the group */}
@@ -745,7 +753,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                                                                             className="animate-shimmer inline-flex items-center gap-1.5 py-1 px-1 text-xs font-medium text-primary bg-muted hover:bg-muted/80 rounded-md transition-colors cursor-pointer border border-primary/20"
                                                                                         >
                                                                                             <div className='border-2 bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800 flex items-center justify-center p-0.5 rounded-sm border-neutral-400/20 dark:border-neutral-600'>
-                                                                                                <CircleDashed className="h-3.5 w-3.5 text-primary flex-shrink-0 animate-spin animation-duration-2000" />
+                                                                                                <CircleDashed className="h-4 w-4 text-primary flex-shrink-0 animate-spin animation-duration-2000" />
                                                                                             </div>
                                                                                             <span className="font-mono text-xs text-primary">{t ? getLocalizedToolName(detectedTag, t) : getUserFriendlyToolName(detectedTag)}</span>
                                                                                         </button>
@@ -758,7 +766,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                                                                             className="animate-shimmer inline-flex items-center gap-1.5 py-1 px-1 text-xs font-medium text-primary bg-muted hover:bg-muted/80 rounded-md transition-colors cursor-pointer border border-primary/20"
                                                                                         >
                                                                                             <div className='border-2 bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800 flex items-center justify-center p-0.5 rounded-sm border-neutral-400/20 dark:border-neutral-600'>
-                                                                                                <CircleDashed className="h-3.5 w-3.5 text-primary flex-shrink-0 animate-spin animation-duration-2000" />
+                                                                                                <CircleDashed className="h-4 w-4 text-primary flex-shrink-0 animate-spin animation-duration-2000" />
                                                                                             </div>
                                                                                             <span className="font-mono text-xs text-primary">
                                                                                             {t ? getLocalizedToolName(extractToolNameFromStream(streamingTextContent) || 'Using Tool...', t) : getUserFriendlyToolName(extractToolNameFromStream(streamingTextContent) || 'Using Tool...')}
@@ -778,7 +786,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                                                                                     className="animate-shimmer inline-flex items-center gap-1.5 py-1 px-1 text-xs font-medium text-primary bg-muted hover:bg-muted/80 rounded-md transition-colors cursor-pointer border border-primary/20"
                                                                                                 >
                                                                                                     <div className='border-2 bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800 flex items-center justify-center p-0.5 rounded-sm border-neutral-400/20 dark:border-neutral-600'>
-                                                                                                        <CircleDashed className="h-3.5 w-3.5 text-primary flex-shrink-0 animate-spin animation-duration-2000" />
+                                                                                                        <CircleDashed className="h-4 w-4 text-primary flex-shrink-0 animate-spin animation-duration-2000" />
                                                                                                     </div>
                                                                                                     <span className="font-mono text-xs text-primary">{t ? getLocalizedToolName(toolName, t) : getUserFriendlyToolName(toolName)}</span>
                                                                                                     {paramDisplay && (
@@ -857,7 +865,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                                                                                 <button
                                                                                                     className="animate-shimmer inline-flex items-center gap-1.5 py-1 px-2.5 text-xs font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-md transition-colors cursor-pointer border border-primary/20"
                                                                                                 >
-                                                                                                    <CircleDashed className="h-3.5 w-3.5 text-primary flex-shrink-0 animate-spin animation-duration-2000" />
+                                                                                                    <CircleDashed className="h-4 w-4 text-primary flex-shrink-0 animate-spin animation-duration-2000" />
                                                                                                     <span className="font-mono text-xs text-primary">
                                                                                                         {detectedTag === 'function_calls' ? (extractToolNameFromStream(streamingText) || 'Using Tool...') : detectedTag}
                                                                                                     </span>
@@ -903,9 +911,9 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                                                                         onClick={() => copyAssistantMessage(cleanMessageContent(messageContent), firstAssistantMessage.message_id)}
                                                                                     >
                                                                                         {assistantCopiedMap[firstAssistantMessage.message_id] ? (
-                                                                                            <Check className="h-2.5 w-2.5 text-green-500" />
+                                                                                            <Check className="h-4 w-4 text-green-500" />
                                                                                         ) : (
-                                                                                            <Copy className="h-2.5 w-2.5" />
+                                                                                            <Image className="h-4 w-4" src={copyIcoSvg} alt="" />
                                                                                         )}
                                                                                     </Button>
                                                                                 </TooltipTrigger>
@@ -962,7 +970,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                         {/* Tool call content */}
                                         <div className="space-y-2">
                                             <div className="animate-shimmer inline-flex items-center gap-1.5 py-1.5 px-3 text-xs font-medium text-primary bg-primary/10 rounded-md border border-primary/20">
-                                                <CircleDashed className="h-3.5 w-3.5 text-primary flex-shrink-0 animate-spin animation-duration-2000" />
+                                                <CircleDashed className="h-4 w-4 text-primary flex-shrink-0 animate-spin animation-duration-2000" />
                                                 <span className="font-mono text-xs text-primary">
                                                     {currentToolCall.name || 'Using Tool'}
                                                 </span>

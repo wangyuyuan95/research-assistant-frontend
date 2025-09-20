@@ -812,7 +812,7 @@ export default function ThreadPage({
           style={isSidePanelOpen && !isMobile ? { right: `${sidePanelWidth}vw` } : undefined}>
           <div className={cn(
             "mx-auto",
-            isMobile ? "w-full" : "max-w-3xl"
+            isMobile ? "w-full" : "max-w-4xl"
           )}>
             <ChatInput
               value={newMessage}

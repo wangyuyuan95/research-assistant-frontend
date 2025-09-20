@@ -19,6 +19,7 @@ import { useFileDelete } from '@/hooks/react-query/files';
 import { useQueryClient } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { ThinkingTimer } from './thinking-timer';
+import { cn } from '@/lib/utils';
 
 export interface ChatInputHandles {
   getPendingFiles: () => File[];
@@ -235,9 +236,9 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
     };
 
     return (
-      <div className="mx-auto w-full max-w-4xl">
+      <div className={cn("mx-auto w-full", sandboxId ? 'max-w-4xl' : 'max-w-4xl')}>
         <Card
-          className="shadow-none w-full max-w-4xl mx-auto bg-transparent border-none rounded-xl overflow-hidden"
+          className={cn("shadow-none w-full mx-auto bg-transparent border-none rounded-xl overflow-hidden", sandboxId ? 'max-w-4xl' : 'max-w-4xl')}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={(e) => {
