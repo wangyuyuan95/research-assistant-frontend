@@ -474,11 +474,11 @@ export function ToolCallSidePanel({
     return (
       <div
         className={cn(
-          'fixed inset-y-0 top-[24px] right-0 border-1 border-solid border-[#EDEDED] rounded-2xl flex flex-col z-30 h-[calc(100vh-48px)] transition-all duration-200 ease-in-out bg-[#FFFFFF] dark:bg-[#2A2F31]',
+          'fixed inset-y-0 top-[24px] right-0 border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl flex flex-col z-30 h-[calc(100vh-48px)] transition-all duration-200 ease-in-out bg-[#FFFFFF] dark:bg-[#2A2F31]',
           isMobile ? 'w-full' : '',
           !isOpen && 'translate-x-full',
         )}
-        style={!isMobile ? { width: `${sidePanelWidth}vw` } : undefined}
+        style={!isMobile ? { width: `calc(${sidePanelWidth}vw - 24px)` } : undefined}
       >
         <div className="flex-1 flex flex-col overflow-hidden">
           <div className="flex flex-col h-full">
@@ -709,11 +709,11 @@ export function ToolCallSidePanel({
   return (
           <div
         className={cn(
-          'fixed inset-y-0 top-[24px] right-0 border-1 border-solid border-[#EDEDED] rounded-2xl flex flex-col z-30 h-[calc(100vh-48px)] transition-all duration-200 ease-in-out bg-[#FFFFFF] dark:bg-[#2A2F31]',
+          'fixed inset-y-0 top-[24px] right-[24px] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl flex flex-col z-30 h-[calc(100vh-48px)] transition-all duration-200 ease-in-out bg-[#FFFFFF] dark:bg-[#2A2F31]',
           isMobile ? 'w-full' : '',
           !isOpen && 'translate-x-full',
         )}
-        style={!isMobile ? { width: `${sidePanelWidth}vw` } : undefined}
+        style={!isMobile ? { width: `calc(${sidePanelWidth}vw - 24px)` } : undefined}
       >
       <div className="flex-1 flex flex-col overflow-hidden">
         {renderContent()}
