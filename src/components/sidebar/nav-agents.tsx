@@ -420,14 +420,14 @@ export function NavAgents() {
         </div>
       )}
 
-      <SidebarGroup>
-        <SidebarMenu>
+      <SidebarGroup className='p-0 mt-[16px]'>
+        <SidebarMenu className='gap-0'>
 
         {isLoading ? (
           // Show skeleton loaders while loading
           Array.from({ length: 3 }).map((_, index) => (
             <SidebarMenuItem key={`skeleton-${index}`}>
-              <SidebarMenuButton>
+              <SidebarMenuButton className='h-[48px]'>
                 <div className="h-4 w-4 bg-sidebar-foreground/10 rounded-md animate-pulse"></div>
                 <div className="h-3 bg-sidebar-foreground/10 rounded w-3/4 animate-pulse"></div>
               </SidebarMenuButton>
@@ -443,19 +443,19 @@ export function NavAgents() {
               const isSelected = selectedThreads.has(thread.threadId);
 
               return (
-                <SidebarMenuItem key={`thread-${thread.threadId}`} className="group">
+                <SidebarMenuItem key={`thread-${thread.threadId}`} className="!w-[48px] !h-[48px] mb-4">
                   {state === 'collapsed' ? (
                     <Tooltip>
-                      <TooltipTrigger asChild>
-                        <div>
-                                                <SidebarMenuButton
-                        asChild
-                        className={`h-10 ${
-                          isActive ? '!bg-white dark:!bg-gray-800' :
-                            isSelected ? '!bg-white dark:!bg-gray-800' : ''
-                        }`}
-                      >
+                      <TooltipTrigger>
+                        <div className="relative">
+                          <SidebarMenuButton
+                            className={`relative !w-[48px] !h-[48px] rounded-[12px] m-0 p-0 ${
+                              isActive ? '!bg-[#F2F5FF] dark:!bg-[#303338] font-medium' :
+                                isSelected ? '!bg-[#F2F5FF] dark:!bg-[#303338]' : ''
+                            }`}
+                          >
                             <Link
+                              className="flex items-center m-0 p-0"
                               href={thread.url}
                               onClick={(e) =>
                                 handleThreadClick(e, thread.threadId, thread.url)
@@ -465,7 +465,7 @@ export function NavAgents() {
                                 <Loader2 className="h-4 w-4 animate-spin" />
                               ) : (
                                 !isMobile && (
-                                  <span className="h-4 w-4 flex items-center justify-center text-sm">
+                                  <span className="!w-[48px] !h-[48px] block">
                                     {thread.projectName.charAt(0)}
                                   </span>
                                 )
@@ -481,10 +481,10 @@ export function NavAgents() {
                     <div className="relative">
                       <SidebarMenuButton
                         asChild
-                        className={`relative h-10 ${isActive
-                          ? '!bg-white dark:!bg-gray-800 font-medium'
+                        className={`relative h-[48px] rounded-[16px] m-0 p-0 ${isActive
+                          ? '!bg-[#F2F5FF] dark:!bg-[#303338] font-medium'
                           : isSelected
-                            ? '!bg-white dark:!bg-gray-800'
+                            ? '!bg-[#F2F5FF] dark:!bg-[#303338]'
                             : ''
                           }`}
                       >
@@ -493,7 +493,7 @@ export function NavAgents() {
                           onClick={(e) =>
                             handleThreadClick(e, thread.threadId, thread.url)
                           }
-                          className="flex items-center"
+                          className="flex items-center m-0 p-0"
                         >
                           <div className="flex items-center group/icon relative">
                             {/* Show checkbox on hover or when selected */}
@@ -518,7 +518,7 @@ export function NavAgents() {
                               </div>
                             )}
                           </div>
-                          <span className="ml-2">{thread.projectName}</span>
+                          <span className="ml-4">{thread.projectName}</span>
                         </Link>
                       </SidebarMenuButton>
                     </div>
@@ -528,7 +528,7 @@ export function NavAgents() {
                       <DropdownMenuTrigger asChild>
                         <SidebarMenuAction
                           showOnHover
-                          className="group-hover:opacity-100"
+                          className="group-hover:opacity-100 mr-5"
                           onClick={() => {
                             // Ensure pointer events are enabled when dropdown opens
                             document.body.style.pointerEvents = 'auto';
@@ -578,7 +578,7 @@ export function NavAgents() {
           </>
         ) : (
           <SidebarMenuItem>
-            <div className="flex items-center justify-center p-4 text-muted text-lg dark:text-[#FFFFFF]">
+            <div className="flex items-center justify-center p-4 text-[#0F0F0F] text-lg dark:text-[#FFFFFF]">
               {t('sidebar.noChatsYet')}
             </div>
           </SidebarMenuItem>

@@ -35,6 +35,9 @@ import { useTheme } from 'next-themes';
 import Image from 'next/image'
 import lightRefreshSVG from '#/light/refresh-ico.svg';
 import darkRefreshSVG from '#/dark/refresh-ico.svg';
+import quickIco1 from '#/quick-ico-1.svg';
+import quickIco2 from '#/quick-ico-2.svg';
+import quickIco3 from '#/quick-ico-3.svg';
 
 type PromptExample = {
   titleKey: string;
@@ -51,12 +54,12 @@ const allPrompts: PromptExample[] = [
   {
     titleKey: 'examples.plgaBBBModification.title',
     queryKey: 'examples.plgaBBBModification.query',
-    icon: <Brain className="text-blue-700 dark:text-blue-400" size={16} />,
+    icon: <Image src={quickIco3} alt="" style={{ width: '16px', height: '16px', maxWidth: '16px' }} />,
   },
   {
     titleKey: 'examples.hydrogelImmunotherapy.title',
     queryKey: 'examples.hydrogelImmunotherapy.query',
-    icon: <Shield className="text-rose-700 dark:text-rose-400" size={16} />,
+    icon: <Image src={quickIco1} alt="" style={{ width: '16px', height: '16px', maxWidth: '16px' }} />,
   },
   {
     titleKey: 'examples.crisprOffTargetControl.title',
@@ -86,7 +89,7 @@ const allPrompts: PromptExample[] = [
   {
     titleKey: 'examples.mrnaVaccineDelivery.title',
     queryKey: 'examples.mrnaVaccineDelivery.query',
-    icon: <Pill className="text-teal-700 dark:text-teal-400" size={16} />,
+    icon: <Image src={quickIco2} alt="" style={{ width: '16px', height: '16px', maxWidth: '16px' }} />,
   },
   {
     titleKey: 'examples.cryoemGpcrdynamics.title',
@@ -113,7 +116,7 @@ export const Examples = ({
 
   // Initialize with random prompts on mount
   useEffect(() => {
-    setDisplayedPrompts(getRandomPrompts(10));
+    setDisplayedPrompts(getRandomPrompts(3));
   }, []);
 
   const handleRefresh = () => {
@@ -125,10 +128,10 @@ export const Examples = ({
   return (
     <div className="w-full max-w-3xl mx-auto">
       <div className="flex justify-between items-center my-4">
-        <span className="text-xs text-muted font-bold">{t('examples.quickStarts')}</span>
+        <span className="text-xs text-[#0F0F0F] dark:text-[#FFFFFF] font-bold">{t('examples.quickStarts')}</span>
         <div
           onClick={handleRefresh}
-          className="h-6 text-xs text-muted hover:text-foreground"
+          className="text-xs text-muted hover:text-foreground mr-[23px]"
         >
           <motion.div
             animate={isRefreshing ? {rotate: 360} : null}
@@ -143,14 +146,14 @@ export const Examples = ({
         {displayedPrompts.map((prompt, index) => (
           <Card
             key={index}
-            className="group cursor-pointer h-full transition-all bg-sidebar hover:bg-neutral-100 dark:hover:bg-neutral-800/60 shadow-lg"
+            className="group cursor-pointer h-full transition-all bg-sidebar hover:bg-neutral-100 dark:hover:bg-neutral-800/60 pt-[30px] p-b[18px] shadow-[0px_4px_20px_0px_#ECF1FF] dark:shadow-none"
             onClick={() => onSelectPrompt && onSelectPrompt(t(prompt.queryKey))}
           >
-            <CardHeader className="px-4 flex flex-row items-center gap-3">
-                <div className="flex items-center gap-2">
+            <CardHeader className="px-[24px] flex flex-row items-start gap-0">
+                <div className="w-[16px] flex items-center pt-[5px] mr-[16px]">
                     {prompt.icon}
                 </div>
-                <CardTitle className="font-normal group-hover:text-foreground transition-all text-muted-foreground text-sm line-clamp-3">
+                <CardTitle className="group-hover:text-foreground transition-all text-[#0F0F0F] dark:text-[#FBFBFB] font-bold text-[16px] line-clamp-3">
                     {t(prompt.titleKey)}
                 </CardTitle>
             </CardHeader>

@@ -521,7 +521,7 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
           <Button
             variant="ghost"
             size="default"
-            className="h-8 rounded-lg text-muted-foreground shadow-none border-none focus:ring-0 px-3"
+            className="h-[34px] px-3 text-muted-foreground shadow-none border-none focus:ring-0 bg-[#F2F5FF] dark:bg-[#50545A] rounded-[17px]"
           >
             <div className="flex items-center gap-1 text-sm font-medium">
               {MODELS[selectedModel]?.lowQuality && (

@@ -191,10 +191,10 @@ function DashboardContent() {
           </div>
         )}
 
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[650px] max-w-[90%]">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[780px] max-w-[90%]">
           <div className="flex flex-col items-start w-full mb-3">
             <div className="flex items-center gap-1">
-              <h1 className="tracking-tight text-3xl text-muted leading-tight font-bold">
+              <h1 className="tracking-tight text-3xl text-[#0F0F0F] dark:text-[#FFFFFF] leading-tight font-bold">
                 {t('dashboard.hey')}
               </h1>
               <AgentSelector 
@@ -203,7 +203,7 @@ function DashboardContent() {
                 variant="heading"
               />
             </div>
-            <p className="tracking-tight text-3xl text-muted mt-2 font-bold">
+            <p className="tracking-tight text-3xl text-[#0F0F0F] dark:text-[#FFFFFF] mt-2 font-bold">
               {t('dashboard.whatWouldYouLikeToDoToday')}
             </p>
           </div>

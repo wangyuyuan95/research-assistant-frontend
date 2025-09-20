@@ -20,6 +20,11 @@ import { TooltipContent } from '@/components/ui/tooltip';
 import { Tooltip } from '@/components/ui/tooltip';
 import { TooltipProvider, TooltipTrigger } from '@radix-ui/react-tooltip';
 import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
+import sendSVG from '#/send.svg';
+import lightUnSendSVG from '#/light/UnSend.svg';
+import darkUnSendSVG from '#/dark/UnSend.svg';
 
 interface MessageInputProps {
   value: string;
@@ -90,7 +95,7 @@ export const MessageInput = forwardRef<HTMLTextAreaElement, MessageInputProps>(
     ref,
   ) => {
     const { t } = useTranslation();
-
+    const { theme, resolvedTheme } = useTheme();
     // 创建设置下拉菜单组件
     const TodoInterceptSettings = () => (
       <DropdownMenu>
@@ -235,8 +240,8 @@ export const MessageInput = forwardRef<HTMLTextAreaElement, MessageInputProps>(
               onClick={isAgentRunning && onStopAgent ? onStopAgent : onSubmit}
               size="sm"
               className={cn(
-                'h-[34px] w-[34px] p-0 bg-[none] flex-shrink-0 self-end',
-                isAgentRunning ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600',
+                'h-[34px] w-[34px] p-0 bg-[none] rounded-[17px] flex-shrink-0 self-end',
+                isAgentRunning ? 'bg-red-500 hover:bg-red-600' : '',
                 (!value.trim() && uploadedFiles.length === 0 && !isAgentRunning) ||
                   loading ||
                   (disabled && !isAgentRunning)
@@ -250,11 +255,15 @@ export const MessageInput = forwardRef<HTMLTextAreaElement, MessageInputProps>(
               }
             >
               {loading ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
+                <Loader2 className="h-[34px] w-[34px] animate-spin" />
               ) : isAgentRunning ? (
-                <Square className="h-4 w-4" />
+                <Square className="h-[34px] w-[34px]" />
               ) : (
-                <ArrowUp className="h-4 w-4" />
+                <>
+                  {(!value.trim() && uploadedFiles.length === 0 && resolvedTheme !== 'dark') && <Image src={lightUnSendSVG} alt="" style={{ width: 34, height: 34 }} />}
+                  {(!value.trim() && uploadedFiles.length === 0 && resolvedTheme === 'dark') && <Image src={darkUnSendSVG} alt="" style={{ width: 34, height: 34 }} />}
+                  {(!!value.trim() || uploadedFiles.length !== 0) && <Image src={sendSVG} alt="" style={{ width: 34, height: 34 }} />}
+                </>
               )}
             </Button>
           </div>
