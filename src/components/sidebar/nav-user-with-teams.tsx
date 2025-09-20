@@ -191,7 +191,7 @@ export function NavUserWithTeams({
         <SidebarMenuItem className={cn("h-16 gab-0", state === 'collapsed' ? "!w-10 p-[0px!important] flex items-center" : "")}>
           <DropdownMenu>
             {state === 'collapsed' && <DropdownMenuTrigger asChild>
-              <Avatar className={cn("rounded-lg bg-[#F2F5FF] gab-0", "h-10 w-10")}>
+              <Avatar className={cn("rounded-lg bg-[#F2F5FF] dark:bg-[#50545A] gab-0", "h-10 w-10")}>
                 <AvatarImage src={user.avatar} alt={user.name} />
                 <AvatarFallback className="rounded-lg">
                   {getInitials(user.name)}

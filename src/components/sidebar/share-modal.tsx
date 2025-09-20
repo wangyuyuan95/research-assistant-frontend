@@ -260,16 +260,16 @@ export function ShareModal({ isOpen, onClose, threadId, projectId }: ShareModalP
                   {t('share.createShareableDescription')}
                 </p>
               </div>
-              <Button onClick={createShareLink} disabled={isLoading} className="w-full">
+              <Button onClick={createShareLink} disabled={isLoading} className="w-full text-[#FFFFFF] dark:text-[#0F0F0F]">
                 {isLoading ? (
                   <>
-                    <Loader2 className="h-4 w-4 animate-spin" />
+                    <Loader2 className="h-4 w-4 animate-spin text-[#FFFFFF] dark:text-[#0F0F0F]" />
                     {t('share.creating')}
                   </>
                 ) : (
                   <>
-                    <Link className="h-4 w-4" />
-                    {t('share.createShareableLink')}
+                    <Link className="h-4 w-4 text-[#FFFFFF] dark:text-[#0F0F0F]" />
+                    <span className="text-[#FFFFFF] dark:text-[#0F0F0F]">{t('share.createShareableLink')}</span>
                   </>
                 )}
               </Button>

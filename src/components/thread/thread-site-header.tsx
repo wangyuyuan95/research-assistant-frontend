@@ -22,7 +22,14 @@ import { useQueryClient } from "@tanstack/react-query";
 import { projectKeys } from "@/hooks/react-query/sidebar/keys";
 import { threadKeys } from "@/hooks/react-query/threads/keys";
 import { useTranslation } from 'react-i18next';
-
+import { useTheme } from 'next-themes';
+import Image from 'next/image'
+import folderOpenSvg from '#/light/folder-open.svg';
+import darkFolderOpenSvg from '#/dark/folder-open.svg';
+import shareIcoSvg from '#/light/share-ico.svg';
+import darkShareIcoSvg from '#/dark/share-ico.svg';
+import rightOpenSvg from '#/light/right-open.svg';
+import darkRightOpenSvg from '#/dark/right-open.svg';
 interface ThreadSiteHeaderProps {
   threadId: string;
   projectId: string;
@@ -45,6 +52,7 @@ export function SiteHeader({
   debugMode,
 }: ThreadSiteHeaderProps) {
   const pathname = usePathname()
+  const { theme, resolvedTheme } = useTheme();
   const [isEditing, setIsEditing] = useState(false)
   const [editName, setEditName] = useState(projectName)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -123,7 +131,7 @@ export function SiteHeader({
   return (
     <>
       <header className={cn(
-        "bg-background sticky top-0 flex h-[64px] pt-[28px] shrink-0 items-center gap-2 z-20 w-full px-6",
+        "bg-background sticky top-0 flex h-14 pt-4 shrink-0 items-center gap-2 z-20 w-full px-6",
         isMobile && "px-2"
       )}>
         {isMobile && (
@@ -197,7 +205,8 @@ export function SiteHeader({
               className="h-9 w-9 cursor-pointer"
               aria-label={t('tooltips.toggleComputerPanel')}
             >
-              <PanelRightOpen className="h-4 w-4" />
+            {resolvedTheme !== 'dark' && <Image className="h-4 w-4" src={rightOpenSvg} alt="" />}
+            {resolvedTheme === 'dark' && <Image className="h-4 w-4" src={darkRightOpenSvg} alt="" />}
             </Button>
           ) : (
             // Desktop view - show all buttons with tooltips
@@ -210,7 +219,8 @@ export function SiteHeader({
                     onClick={onViewFiles}
                     className="h-9 w-9 cursor-pointer"
                   >
-                    <FolderOpen className="h-4 w-4" />
+                    {resolvedTheme !== 'dark' && <Image className="h-4 w-4" src={folderOpenSvg} alt="" />}
+                    {resolvedTheme === 'dark' && <Image className="h-4 w-4" src={darkFolderOpenSvg} alt="" />}
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -226,7 +236,8 @@ export function SiteHeader({
                     onClick={openShareModal}
                     className="h-9 w-9 cursor-pointer"
                   >
-                    <Share2 className="h-4 w-4" />
+                    {resolvedTheme !== 'dark' && <Image className="h-4 w-4" src={shareIcoSvg} alt="" />}
+                    {resolvedTheme === 'dark' && <Image className="h-4 w-4" src={darkShareIcoSvg} alt="" />}
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -242,7 +253,8 @@ export function SiteHeader({
                     onClick={onToggleSidePanel}
                     className="h-9 w-9 cursor-pointer hover:bg-[#F0F0F0] hover:border-[1px] hover:border-solid hover:border-[#EDEDED] rounded-2xl"
                   >
-                    <PanelRightOpen className="h-4 w-4" />
+                    {resolvedTheme !== 'dark' && <Image className="h-4 w-4" src={rightOpenSvg} alt="" />}
+                    {resolvedTheme === 'dark' && <Image className="h-4 w-4" src={darkRightOpenSvg} alt="" />}
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
