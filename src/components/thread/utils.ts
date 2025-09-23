@@ -21,6 +21,21 @@ import {
   MessageCircleQuestion,
   CheckCircle2,
 } from 'lucide-react';
+import creatFileSvg from '#/light/creat-file.svg';
+import darkCreatFileSvg from '#/dark/creat-file.svg';
+import creatFileRightSvg from '#/light/creat-file-right.svg';
+import darkCreatFileRightSvg from '#/dark/creat-file-right.svg';
+import editSvg from '#/light/edit.svg';
+import darkEditSvg from '#/dark/edit.svg';
+import searchSvg from '#/light/search.svg';
+import darkSearchSvg from '#/dark/search.svg';
+import searchRightSvg from '#/light/search-right.svg';
+import darkSearchRightSvg from '#/dark/search-right.svg';
+import askSvg from '#/light/ask.svg';
+import darkAskSvg from '#/dark/ask.svg';
+import askRightSvg from '#/dark/ask-right.svg';
+import darkAskRightSvg from '#/dark/ask-right.svg';
+
 
 // Flag to control whether tool result messages are rendered
 export const SHOULD_RENDER_TOOL_RESULTS = false;
@@ -99,11 +114,13 @@ export const getToolIcon = (toolName: string): ElementType => {
 
     // File operations
     case 'create-file':
+      return {"url": creatFileSvg, dark: darkCreatFileSvg, right: creatFileRightSvg, darkRight: darkCreatFileRightSvg} as any
       return FileEdit;
     case 'str-replace':
       return FileSearch;
     case 'full-file-rewrite':
-      return FilePlus;
+      return {"url": editSvg, dark: darkEditSvg} as any
+      // return FilePlus;
     case 'read-file':
       return FileText;
 
@@ -117,7 +134,8 @@ export const getToolIcon = (toolName: string): ElementType => {
 
     // Web operations
     case 'web-search':
-      return Search;
+      return {"url": searchSvg, dark: darkSearchSvg, right: searchRightSvg, darkRight: darkSearchRightSvg} as any
+      // return Search;
     case 'crawl-webpage':
       return Globe;
     case 'scrape-webpage':
@@ -145,7 +163,8 @@ export const getToolIcon = (toolName: string): ElementType => {
 
     // User interaction
     case 'ask':
-      return MessageCircleQuestion;
+      return {"url": askSvg, dark: darkAskSvg, right: askRightSvg, darkRight: darkAskRightSvg} as any
+      // return MessageCircleQuestion;
 
     // Task completion
     case 'complete':

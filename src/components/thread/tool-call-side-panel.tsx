@@ -13,7 +13,8 @@ import { Button } from '@/components/ui/button';
 import { ToolView } from './tool-views/wrapper';
 import { useTranslation } from 'react-i18next';
 import { StreamingFileContent } from '@/hooks/useAgentStream'; // 导入流式文件内容类型
-
+import { useTheme } from 'next-themes';
+import Image from 'next/image'
 export interface ToolCallInput {
   assistantCall: {
     content?: string;
@@ -91,6 +92,7 @@ export function ToolCallSidePanel({
   isTodoInterceptActive = false,
   setIsTodoInterceptActive,
 }: ToolCallSidePanelProps) {
+  const { theme, resolvedTheme } = useTheme();
   const [dots, setDots] = React.useState('');
   const [internalIndex, setInternalIndex] = React.useState(0);
   const [navigationMode, setNavigationMode] = React.useState<'live' | 'manual'>('live');
@@ -300,7 +302,7 @@ export function ToolCallSidePanel({
   const currentToolName = displayToolCall?.assistantCall?.name || 'Tool Call';
   // Get the properly localized tool name using extractToolName
   const localizedToolName = displayToolCall ? extractToolName(displayToolCall) : t('toolViews.common.toolName');
-  const CurrentToolIcon = getToolIcon(
+  const CurrentToolIcon: any = getToolIcon(
     currentToolCall?.assistantCall?.name || 'unknown',
   );
   const isStreaming = displayToolCall?.toolResult?.content === 'STREAMING';
@@ -729,8 +731,9 @@ export function ToolCallSidePanel({
           {!isMobile && (
             <div className="flex justify-between items-center gap-4">
               <div className="flex items-center gap-2 min-w-0">
-                <div className="h-5 w-5 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
-                  <CurrentToolIcon className="h-3 w-3 text-zinc-800 dark:text-zinc-300" />
+                <div className="h-5 w-5 rounded-full bg-[#F2F5FF] dark:bg-[#3363FF] flex items-center justify-center">
+                  {!CurrentToolIcon?.url && <CurrentToolIcon className="h-3 w-3 text-zinc-800 dark:text-zinc-300" />}
+                  {CurrentToolIcon?.url && <Image className="h-5 w-5" src={resolvedTheme === 'dark' ? CurrentToolIcon?.darkRight??CurrentToolIcon?.dark : CurrentToolIcon?.right??CurrentToolIcon?.url } alt="" />}
                 </div>
                 <span
                   className="text-xs font-medium text-zinc-700 dark:text-zinc-300 truncate"

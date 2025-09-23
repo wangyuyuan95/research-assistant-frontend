@@ -25,9 +25,7 @@ import { shouldHideMessage } from '@/components/thread/utils/hidden-message';
 import Image from 'next/image'
 import copyIcoSvg from '#/copy-ico.svg';
 import sliderLogoSVG from '#/sliderLogo.svg';
-
-
-
+import { useTheme } from 'next-themes';
 
 // Define the set of tags whose raw XML should be hidden during streaming
 const HIDE_STREAMING_XML_TAGS = new Set([
@@ -96,7 +94,8 @@ export function renderMarkdownContent(
     sandboxId?: string,
     project?: Project,
     debugMode?: boolean,
-    t?: (key: string) => string
+    t?: (key: string) => string,
+    resolvedTheme?: string
 ) {
     // If in debug mode, just display raw content in a pre tag
     if (debugMode) {
@@ -106,7 +105,6 @@ export function renderMarkdownContent(
             </pre>
         );
     }
-
     // Check if content contains the new Cursor-style format
     if (isNewXmlFormat(content)) {
         const contentParts: React.ReactNode[] = [];
@@ -134,7 +132,7 @@ export function renderMarkdownContent(
             
             toolCalls.forEach((toolCall, index) => {
                 const toolName = toolCall.functionName.replace(/_/g, '-');
-                const IconComponent = getToolIcon(toolName);
+                const IconComponent: any = getToolIcon(toolName);
                 
                 // Extract primary parameter for display
                 let paramDisplay = '';
@@ -153,11 +151,12 @@ export function renderMarkdownContent(
                         <button
                             onClick={() => handleToolClick(messageId, toolName)}
                             // className="inline-flex items-center gap-1.5 py-1 px-1 text-xs text-muted-foreground bg-muted hover:bg-muted/80 rounded-md transition-colors cursor-pointer border border-neutral-200 dark:border-neutral-700/50"
-                            className="inline-flex items-center gap-1.5 py-1 px-1 text-xs text-[#838990] dark:text-[#FFFFFF] bg-[#F0F0F0] dark:bg-[#202426] hover:bg-[#F0F0F0]/80 dark:hover:bg-[#202426]/80 rounded-md transition-colors cursor-pointer border border-solid border-[#EDEDED] dark:border-[#2A2F31]"
+                            className="inline-flex items-center gap-1.5 py-1 px-1 text-xs text-[#838990] dark:text-[#FFFFFF] dark:opacity-80 bg-[#F0F0F0] dark:bg-[#202426] hover:bg-[#F0F0F0]/80 dark:hover:bg-[#202426]/80 rounded-md transition-colors cursor-pointer border border-solid border-[#EDEDED] dark:border-[#2A2F31]"
                         >
                             {/* <div className='border-1 bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800 flex items-center justify-center p-0.5 rounded-sm border-neutral-400/20 dark:border-neutral-600'> */}
                             <div className='flex items-center justify-center p-0.5 rounded-sm'>
-                                <IconComponent className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                                {!IconComponent?.url && <IconComponent className="h-4 w-4 text-muted-foreground flex-shrink-0" />}
+                                {IconComponent?.url && <Image className="h-3 w-3" src={resolvedTheme === 'dark' ? IconComponent?.dark : IconComponent?.url } alt="" />}
                             </div>
                             <span className="font-mono text-[#666B71] dark:text-[#FFFFFF]">{t ? getLocalizedToolName(toolName, t) : getUserFriendlyToolName(toolName)}</span>
                             {paramDisplay && (
@@ -240,7 +239,7 @@ export function renderMarkdownContent(
                 </div>
             );
         } else {
-            const IconComponent = getToolIcon(toolName);
+            const IconComponent: any = getToolIcon(toolName);
             const paramDisplay = extractPrimaryParam(toolName, rawXml);
 
             // Render tool button as a clickable element
@@ -248,10 +247,11 @@ export function renderMarkdownContent(
                 <div key={toolCallKey} className="my-1">
                     <button
                         onClick={() => handleToolClick(messageId, toolName)}
-                        className="inline-flex items-center gap-1.5 py-1 px-1 text-xs text-[#838990] dark:text-[#FFFFFF] bg-[#F0F0F0] dark:bg-[#202426] hover:bg-[#F0F0F0]/80 dark:hover:bg-[#202426]/80 rounded-md transition-colors cursor-pointer border border-solid border-[#EDEDED] dark:border-[#2A2F31]"
+                        className="inline-flex items-center gap-1.5 py-1 px-1 text-xs text-[#838990] dark:text-[#FFFFFF] dark:opacity-80 bg-[#F0F0F0] dark:bg-[#202426] hover:bg-[#F0F0F0]/80 dark:hover:bg-[#202426]/80 rounded-md transition-colors cursor-pointer border border-solid border-[#EDEDED] dark:border-[#2A2F31]"
                     >
                         <div className='flex items-center justify-center p-0.5 rounded-sm'>
-                            <IconComponent className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                            {!IconComponent?.url && <IconComponent className="h-4 w-4 text-muted-foreground flex-shrink-0" />}
+                            {IconComponent?.url && <Image className="h-3 w-3" src={resolvedTheme === 'dark' ? IconComponent?.dark : IconComponent?.url } alt="" />}
                         </div>
                         <span className="font-mono text-xs text-foreground">{t ? getLocalizedToolName(toolName, t) : getUserFriendlyToolName(toolName)}</span>
                         {paramDisplay && (
@@ -356,7 +356,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
     const [userHasScrolled, setUserHasScrolled] = useState(false);
     const { session } = useAuth();
     const { t } = useTranslation();
-    
+    const { theme, resolvedTheme } = useTheme();
     // React Query file preloader
     const { preloadFiles } = useFilePreloader();
 
@@ -682,7 +682,8 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                                                             sandboxId,
                                                                             project,
                                                                             debugMode,
-                                                                            t
+                                                                            t,
+                                                                            resolvedTheme
                                                                         );
 
                                                                         elements.push(
@@ -736,7 +737,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                                                         const textToRender = streamingTextContent || '';
                                                                         const textBeforeTag = detectedTag ? textToRender.substring(0, tagStartIndex) : textToRender;
                                                                         const showCursor = (streamHookStatus === 'streaming' || streamHookStatus === 'connecting') && !detectedTag;
-                                                                        const IconComponent = detectedTag && detectedTag !== 'function_calls' ? getToolIcon(detectedTag) : null;
+                                                                        // const IconComponent = detectedTag && detectedTag !== 'function_calls' ? getToolIcon(detectedTag) : null;
 
                                                                         return (
                                                                             <>
@@ -779,7 +780,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                                                                     <div className="mt-2 mb-1">
                                                                                         {(() => {
                                                                                             const toolName = streamingToolCall.name || streamingToolCall.xml_tag_name || 'Tool';
-                                                                                            const IconComponent = getToolIcon(toolName);
+                                                                                            // const IconComponent = getToolIcon(toolName);
                                                                                             const paramDisplay = extractPrimaryParam(toolName, streamingToolCall.arguments || '');
                                                                                             return (
                                                                                                 <button
