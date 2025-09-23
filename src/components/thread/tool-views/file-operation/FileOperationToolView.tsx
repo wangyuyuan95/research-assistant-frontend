@@ -504,7 +504,7 @@ export function FileOperationToolView({
 
     return (
       <div className="p-4">
-        <div className='w-full h-full bg-muted/20 border rounded-xl px-4 py-2 pb-6'>
+        <div className='w-full h-full bg-muted/20'>
           <pre className="text-sm font-mono text-zinc-800 dark:text-zinc-300 whitespace-pre-wrap break-words">
             {processUnicodeContent(fileContent)}
           </pre>
@@ -535,7 +535,7 @@ export function FileOperationToolView({
   const renderSourceCode = () => {
     if (!fileContent) {
       return (
-        <div className="flex items-center justify-center h-full p-12">
+        <div className="flex items-center justify-center h-full">
           <div className="text-center">
             <FileIcon className="h-12 w-12 mx-auto mb-4 text-zinc-400" />
             <p className="text-sm text-zinc-500 dark:text-zinc-400">{t('toolViews.common.noContentAvailable')}</p>
@@ -615,30 +615,30 @@ export function FileOperationToolView({
   };
 
   return (
-    <Card className="flex border shadow-none border-t border-b-0 border-x-0 p-0 rounded-none flex-col h-full overflow-hidden bg-white dark:bg-zinc-950">
-      <Tabs defaultValue={'preview'} className="w-full h-full">
-        <CardHeader className="h-14 bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b p-2 px-4 space-y-2 mb-0">
+    <Card className="flex border-0 gap-0 shadow-none p-0 rounded-none flex-col h-full overflow-hidden bg-[#FFFFFF] dark:bg-[#202426]">
+      <Tabs defaultValue={'preview'} className="w-full h-full gap-0">
+        <CardHeader className="h-6 bg-[#FFFFFF] dark:bg-zinc-900/80 backdrop-blur-sm px-6 mb-0 gap-0">
           <div className="flex flex-row items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className={cn("relative p-2 rounded-lg border", config.gradientBg, config.borderColor)}>
-                <Icon className={cn("h-5 w-5", config.color)} />
+            <div className="flex items-center gap-4">
+              <div className={cn("relative p-0 rounded-lg", config.gradientBg, config.borderColor)}>
+                <Icon className={cn("h-4 w-4", config.color)} />
               </div>
               <div>
-                <CardTitle className="text-base font-medium text-zinc-900 dark:text-zinc-100">
+                <CardTitle className="text-base font-bold text-[#0F0F0F] dark:text-[#FFFFFF]">
                   {getLocalizedToolTitle(name || `file-${operation}`, t)}
                 </CardTitle>
               </div>
             </div>
             <div className='flex items-center gap-2'>
               {isHtml && htmlPreviewUrl && !isStreaming && (
-                <Button variant="outline" size="sm" className="h-8 text-xs bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800" asChild>
+                <Button variant="outline" size="sm" className="h-4 text-xs bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800" asChild>
                   <a href={htmlPreviewUrl} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="h-3.5 w-3.5 mr-1.5" />
                     {t('fileOperation.openInBrowser')}
                   </a>
                 </Button>
               )}
-              <TabsList className="-mr-2 h-7 bg-zinc-100/70 dark:bg-zinc-800/70 rounded-lg">
+              <TabsList className="p-0 h-6 bg-zinc-100/70 dark:bg-zinc-800/70 rounded-lg text-[12px]">
                 <TabsTrigger value="code" className="rounded-md data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-900 data-[state=active]:text-primary">
                   <Code className="h-4 w-4" />
                   {t('fileOperation.source')}
@@ -652,8 +652,8 @@ export function FileOperationToolView({
           </div>
         </CardHeader>
 
-        <CardContent className="p-0 -my-2 h-full flex-1 overflow-hidden relative">
-          <TabsContent value="code" className="flex-1 h-full mt-0 p-0 overflow-hidden">
+        <CardContent className="relative p-0 pb-10 m-6 h-full flex-1 overflow-hidden bg-[#FCFCFC] border-1 border-solid border-[#EDEDED] rounded-2xl">
+          <TabsContent value="code" className="flex-1 h-full mt-0 p-0 pt-4 overflow-hidden">
             <ScrollArea className="h-screen w-full min-h-0" ref={codeAutoScroll.scrollRef}>
               {(isStreaming || isRealTimeStreaming) && !fileContent ? (
                 <LoadingState
@@ -666,7 +666,7 @@ export function FileOperationToolView({
                   showProgress={false}
                 />
               ) : operation === 'delete' ? (
-                <div className="flex flex-col items-center justify-center h-full py-12 px-6">
+                <div className="flex flex-col items-center justify-center h-full">
                   <div className={cn("w-20 h-20 rounded-full flex items-center justify-center mb-6", config.bgColor)}>
                     <Icon className={cn("h-10 w-10", config.color)} />
                   </div>
@@ -705,6 +705,22 @@ export function FileOperationToolView({
 
             </ScrollArea>
           </TabsContent>
+          <div className="absolute bottom-0 w-full px-4 h-10 bg-gradient-to-r from-zinc-50/90 to-zinc-100/90 dark:from-zinc-900/90 dark:to-zinc-800/90 backdrop-blur-sm border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-center gap-4">
+            <div className="h-full flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+              <Badge variant="outline" className="py-0.5 h-6">
+                <FileIcon className="h-3 w-3" />
+                {hasHighlighting ? language.toUpperCase() : fileExtension.toUpperCase() || 'TEXT'}
+              </Badge>
+            </div>
+
+            <div className="text-xs text-zinc-500 dark:text-zinc-400">
+              {toolTimestamp && !isStreaming
+                ? formatTimestamp(toolTimestamp)
+                : assistantTimestamp
+                  ? formatTimestamp(assistantTimestamp)
+                  : ''}
+            </div>
+          </div>
         </CardContent>
 
         {/* Todo.md editing action bar */}
@@ -784,22 +800,6 @@ export function FileOperationToolView({
           </div>
         )}
 
-        <div className="px-4 py-2 h-10 bg-gradient-to-r from-zinc-50/90 to-zinc-100/90 dark:from-zinc-900/90 dark:to-zinc-800/90 backdrop-blur-sm border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-center gap-4">
-          <div className="h-full flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
-            <Badge variant="outline" className="py-0.5 h-6">
-              <FileIcon className="h-3 w-3" />
-              {hasHighlighting ? language.toUpperCase() : fileExtension.toUpperCase() || 'TEXT'}
-            </Badge>
-          </div>
-
-          <div className="text-xs text-zinc-500 dark:text-zinc-400">
-            {toolTimestamp && !isStreaming
-              ? formatTimestamp(toolTimestamp)
-              : assistantTimestamp
-                ? formatTimestamp(assistantTimestamp)
-                : ''}
-          </div>
-        </div>
       </Tabs>
     </Card>
   );

@@ -597,9 +597,9 @@ export function ToolCallSidePanel({
 
       return (
         <div className="flex flex-col h-full">
-          <div className="pt-4 pl-4 pr-4">
+          <div className="pt-4 px-6">
             <div className="flex items-center justify-between">
-              <div className="ml-2 flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <h2 className="text-md font-medium text-zinc-900 dark:text-zinc-100">
                   {agentName ? t('computer.agentComputer', { agentName }) : t('computer.title')}
                 </h2>
@@ -725,7 +725,7 @@ export function ToolCallSidePanel({
         <div
           className={cn(
             '',
-            isMobile ? 'p-3' : 'p-4 space-y-2',
+            isMobile ? 'p-3 pt-0' : 'p-6 pt-0 space-y-2',
           )}
         >
           {!isMobile && (
