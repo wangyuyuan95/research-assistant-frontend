@@ -584,7 +584,7 @@ export function FileOperationToolView({
     }
 
     return (
-      <div className="min-w-full table">
+      <div className="min-w-full flex">
         {contentLines.map((line, idx) => (
           <div
             key={idx}
@@ -617,13 +617,13 @@ export function FileOperationToolView({
   };
 
   return (
-    <Card className="flex border-0 gap-0 shadow-none p-0 rounded-none flex-col h-full overflow-hidden bg-none">
+    <Card className="flex border-0 gap-0 shadow-none p-0 rounded-none flex-col h-full overflow-hidden bg-[#FFFFFF] dark:bg-[#202426]">
       <Tabs defaultValue={'preview'} className="w-full h-full gap-0">
         <CardHeader className="h-6 bg-[#FFFFFF] dark:bg-[#202426] backdrop-blur-sm px-6 mb-0 gap-0">
           <div className="flex flex-row items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className={cn("relative p-0 rounded-lg", config.gradientBg, config.borderColor)}>
-                <Icon className={cn("h-4 w-4", config.color)} />
+              <div className={cn("relative flex items-center justify-center h-5 w-5 p-0 rounded-lg", config.gradientBg)}>
+                <Icon className={cn("h-3 w-3", config.color)} />
               </div>
               <div>
                 <CardTitle className="text-base font-bold text-[#0F0F0F] dark:text-[#FFFFFF]">
@@ -704,7 +704,6 @@ export function FileOperationToolView({
               ) : (
                 renderFilePreview()
               )}
-
             </ScrollArea>
           </TabsContent>
           <div className="absolute bottom-0 w-full px-4 h-10 flex justify-between items-center gap-4 bg-[#FCFCFC] dark:bg-[#16191A] border-t-1 border-solid border-[#EDEDED] dark:border-[#2A2F31]">

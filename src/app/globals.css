@@ -271,7 +271,7 @@
   --background: #0F0F0F;
   --background-img: url(/dark/BG.png);
   --foreground: #fafafa;
-  --card: oklch(0.145 0 0);
+  --card: #0a0a0a;
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
   --popover-foreground: oklch(0.985 0 0);

@@ -128,12 +128,12 @@ export function WebScrapeToolView({
   };
 
   return (
-    <Card className="gap-0 flex border shadow-none border-t border-b-0 border-x-0 p-0 rounded-none flex-col h-full overflow-hidden bg-white dark:bg-zinc-950">
-      <CardHeader className="h-14 bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b p-2 px-4 space-y-2">
+    <Card className="flex border-0 gap-0 shadow-none p-0 rounded-none flex-col h-full overflow-hidden bg-[#FFFFFF] dark:bg-[#202426]">
+      <CardHeader className="h-6 bg-[#FFFFFF] dark:bg-[#202426] backdrop-blur-sm px-6 mb-0 gap-0">
         <div className="flex flex-row items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="relative p-2 rounded-lg bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/20">
-              <Globe className="w-5 h-5 text-primary" />
+            <div className="relative flex items-center justify-center h-5 w-5 p-0 rounded-lg bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/20">
+              <Globe className="w-3 h-3 text-primary" />
             </div>
             
             <div>
@@ -163,7 +163,7 @@ export function WebScrapeToolView({
         </div>
       </CardHeader>
 
-      <CardContent className="p-0 h-full flex-1 overflow-hidden relative">
+      <CardContent className="relative p-0 pb-10 m-6 mt-2 h-full flex-1 overflow-hidden bg-[#FCFCFC] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
         {isStreaming ? (
           <div className="flex flex-col items-center justify-center h-full py-12 px-6 bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-950 dark:to-zinc-900">
             <div className="text-center w-full max-w-xs">
@@ -323,27 +323,26 @@ export function WebScrapeToolView({
             </p>
           </div>
         )}
+        {/* Footer */}
+        <div className="px-4 py-2 h-10 bg-gradient-to-r from-zinc-50/90 to-zinc-100/90 dark:from-zinc-900/90 dark:to-zinc-800/90 backdrop-blur-sm border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-center gap-4">
+          <div className="h-full flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+            {!isStreaming && files.length > 0 && (
+              <Badge className="h-6 py-0.5">
+                <div className="w-2 h-2 rounded-full bg-green-500 mr-1.5" />
+                {files.length} file{files.length !== 1 ? 's' : ''} saved
+              </Badge>
+            )}
+          </div>
+          
+          <div className="text-xs text-zinc-500 dark:text-zinc-400">
+            {actualToolTimestamp && !isStreaming
+              ? formatTimestamp(actualToolTimestamp)
+              : actualAssistantTimestamp
+                ? formatTimestamp(actualAssistantTimestamp)
+                : ''}
+          </div>
+        </div>
       </CardContent>
-      
-      {/* Footer */}
-      <div className="px-4 py-2 h-10 bg-gradient-to-r from-zinc-50/90 to-zinc-100/90 dark:from-zinc-900/90 dark:to-zinc-800/90 backdrop-blur-sm border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-center gap-4">
-        <div className="h-full flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
-          {!isStreaming && files.length > 0 && (
-            <Badge className="h-6 py-0.5">
-              <div className="w-2 h-2 rounded-full bg-green-500 mr-1.5" />
-              {files.length} file{files.length !== 1 ? 's' : ''} saved
-            </Badge>
-          )}
-        </div>
-        
-        <div className="text-xs text-zinc-500 dark:text-zinc-400">
-          {actualToolTimestamp && !isStreaming
-            ? formatTimestamp(actualToolTimestamp)
-            : actualAssistantTimestamp
-              ? formatTimestamp(actualAssistantTimestamp)
-              : ''}
-        </div>
-      </div>
     </Card>
   );
 }

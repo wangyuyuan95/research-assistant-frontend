@@ -833,7 +833,7 @@ export function ToolCallSidePanel({
 
               <div className="relative w-full">
                 {(showJumpToLive || showJumpToLatest) && (
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10">
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 z-10">
                     {showJumpToLive && (
                       <Button className='rounded-full bg-red-500 hover:bg-red-400 !text-white' onClick={jumpToLive}>
                         {t('activity.jumpToLive')}
@@ -863,6 +863,10 @@ export function ToolCallSidePanel({
                     [&>span:nth-child(2)>span]:bg-gradient-to-b
                     [&>span:nth-child(2)>span]:from-[#2387FF]
                     [&>span:nth-child(2)>span]:to-[#E856FF]
+                    [&>span:nth-child(2)>span]:border-2
+                    [&>span:nth-child(2)>span]:border-solid
+                    [&>span:nth-child(2)>span]:border-[#FFFFFF]
+                    dark:[&>span:nth-child(2)>span]:border-[#202426]
                     [&>span:nth-child(2)>span>span]:!border-[none]
                   "
                 />
