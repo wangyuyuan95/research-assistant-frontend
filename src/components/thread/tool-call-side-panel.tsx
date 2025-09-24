@@ -476,7 +476,7 @@ export function ToolCallSidePanel({
     return (
       <div
         className={cn(
-          'fixed inset-y-0 top-[24px] right-0 border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl flex flex-col z-30 h-[calc(100vh-48px)] transition-all duration-200 ease-in-out bg-[#FFFFFF] dark:bg-[#2A2F31]',
+          'fixed inset-y-0 top-[24px] right-0 border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl flex flex-col z-30 h-[calc(100vh-48px)] transition-all duration-200 ease-in-out bg-[#FFFFFF] dark:bg-[#202426]',
           isMobile ? 'w-full' : '',
           !isOpen && 'translate-x-full',
         )}
@@ -711,7 +711,7 @@ export function ToolCallSidePanel({
   return (
           <div
         className={cn(
-          'fixed inset-y-0 top-[24px] right-[24px] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl flex flex-col z-30 h-[calc(100vh-48px)] transition-all duration-200 ease-in-out bg-[#FFFFFF] dark:bg-[#2A2F31]',
+          'fixed inset-y-0 top-[24px] right-[24px] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl flex flex-col z-30 h-[calc(100vh-48px)] transition-all duration-200 ease-in-out bg-[#FFFFFF] dark:bg-[#202426]',
           isMobile ? 'w-full' : '',
           !isOpen && 'translate-x-full',
         )}

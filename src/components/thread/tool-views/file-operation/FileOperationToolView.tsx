@@ -66,6 +66,8 @@ import { LoadingState } from '../shared/LoadingState';
 import { TodoSourceEditor, TodoPreviewEditor } from './TodoMdEditor';
 import { wrapAsHiddenMessage, isHiddenMessage } from '../../utils/hidden-message';
 import { useAutoScroll } from '@/hooks/useAutoScroll';
+import Image from 'next/image';
+import flowIcoSVG from '#/flow-ico.svg';
 
 export function FileOperationToolView({
   assistantContent,
@@ -615,9 +617,9 @@ export function FileOperationToolView({
   };
 
   return (
-    <Card className="flex border-0 gap-0 shadow-none p-0 rounded-none flex-col h-full overflow-hidden bg-[#FFFFFF] dark:bg-[#202426]">
+    <Card className="flex border-0 gap-0 shadow-none p-0 rounded-none flex-col h-full overflow-hidden bg-none">
       <Tabs defaultValue={'preview'} className="w-full h-full gap-0">
-        <CardHeader className="h-6 bg-[#FFFFFF] dark:bg-zinc-900/80 backdrop-blur-sm px-6 mb-0 gap-0">
+        <CardHeader className="h-6 bg-[#FFFFFF] dark:bg-[#202426] backdrop-blur-sm px-6 mb-0 gap-0">
           <div className="flex flex-row items-center justify-between">
             <div className="flex items-center gap-4">
               <div className={cn("relative p-0 rounded-lg", config.gradientBg, config.borderColor)}>
@@ -638,7 +640,7 @@ export function FileOperationToolView({
                   </a>
                 </Button>
               )}
-              <TabsList className="p-0 h-6 bg-zinc-100/70 dark:bg-zinc-800/70 rounded-lg text-[12px]">
+              <TabsList className="p-0 h-6 bg-[#F0F0F0] dark:bg-[#303338] rounded-lg border-1 border-solid border-[#EDEDED] dark:border-[#464A51] text-[12px]">
                 <TabsTrigger value="code" className="rounded-md data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-900 data-[state=active]:text-primary">
                   <Code className="h-4 w-4" />
                   {t('fileOperation.source')}
@@ -652,7 +654,7 @@ export function FileOperationToolView({
           </div>
         </CardHeader>
 
-        <CardContent className="relative p-0 pb-10 m-6 h-full flex-1 overflow-hidden bg-[#FCFCFC] border-1 border-solid border-[#EDEDED] rounded-2xl">
+        <CardContent className="relative p-0 pb-10 m-6 h-full flex-1 overflow-hidden bg-[#FCFCFC] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
           <TabsContent value="code" className="flex-1 h-full mt-0 p-0 pt-4 overflow-hidden">
             <ScrollArea className="h-screen w-full min-h-0" ref={codeAutoScroll.scrollRef}>
               {(isStreaming || isRealTimeStreaming) && !fileContent ? (
@@ -705,7 +707,7 @@ export function FileOperationToolView({
 
             </ScrollArea>
           </TabsContent>
-          <div className="absolute bottom-0 w-full px-4 h-10 bg-gradient-to-r from-zinc-50/90 to-zinc-100/90 dark:from-zinc-900/90 dark:to-zinc-800/90 backdrop-blur-sm border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-center gap-4">
+          <div className="absolute bottom-0 w-full px-4 h-10 flex justify-between items-center gap-4 bg-[#FCFCFC] dark:bg-[#16191A] border-t-1 border-solid border-[#EDEDED] dark:border-[#2A2F31]">
             <div className="h-full flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
               <Badge variant="outline" className="py-0.5 h-6">
                 <FileIcon className="h-3 w-3" />
@@ -725,8 +727,8 @@ export function FileOperationToolView({
 
         {/* Todo.md editing action bar */}
         {isTodoMdEditable && (
-          <div className="-mb-2 px-4 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/50 dark:to-indigo-950/50 border-t border-blue-200 dark:border-blue-800">
-            <div className="flex items-center justify-between">
+          <div className="mx-6 mb-4 -mt-2 px-3 h-15 bg-[#F2F5FF] dark:bg-[#2E3336] rounded-2xl flex">
+            <div className="flex items-center justify-between w-full">
               <div className="flex items-center gap-2">
                 <Popover open={isTooltipOpen} onOpenChange={setIsTooltipOpen}>
                   <PopoverTrigger asChild>
@@ -734,7 +736,8 @@ export function FileOperationToolView({
                       className="w-5 h-5 flex items-center justify-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors rounded-full hover:bg-blue-50 dark:hover:bg-blue-950/30"
                       onClick={() => setIsTooltipOpen(!isTooltipOpen)}
                     >
-                      <HelpCircle className="w-4 h-4" />
+                      <Image className="h-4 w-4" src={flowIcoSVG} alt="" />
+                      {/* <HelpCircle className="w-4 h-4" /> */}
                     </button>
                   </PopoverTrigger>
                   <PopoverContent 
@@ -772,8 +775,8 @@ export function FileOperationToolView({
                     </div>
                   </PopoverContent>
                 </Popover>
-                <div className="text-sm text-blue-900 dark:text-blue-100">
-                  <span className="font-medium">{t('fileOperation.todoResearchPlan')}</span>
+                <div className="text-base text-[#3363FF]">
+                  <span className="font-bold">{t('fileOperation.todoResearchPlan')}</span>
                 </div>
               </div>
               
@@ -791,7 +794,7 @@ export function FileOperationToolView({
                 <Button 
                   size="sm"
                   onClick={hasUnsavedChanges ? handleTodoSave : handleTodoCancel}
-                  className="h-8 text-xs bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-full font-medium"
+                  className="h-8 !text-[14px] bg-[#3363FF] hover:bg-[#3363FF]-700 dark:bg-blue-500 dark:hover:bg-blue-600 !text-white rounded-lg !font-bold"
                 >
                   {hasUnsavedChanges ? t('fileOperation.modifyAndExecute') : t('fileOperation.confirmExecute')}
                 </Button>
