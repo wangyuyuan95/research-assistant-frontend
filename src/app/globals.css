@@ -228,7 +228,8 @@
 }
 
 :root {
-  --background: #F7F7F7;
+  --background: #F2F5FF;
+  /* --background: #F7F7F7; */
   --background-img: url(/light/BG.png);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);

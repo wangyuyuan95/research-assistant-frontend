@@ -74,7 +74,7 @@ function SearchResultsRenderer({ data, metadata }: { data: any; metadata?: any }
       </div>
       
       {(meta?.autopromptString || meta?.query) && (
-        <div className="mb-4 p-2 bg-zinc-50 dark:bg-zinc-900 rounded text-xs text-zinc-600 dark:text-zinc-400">
+        <div className="mb-4 p-2 bg-[#F2F5FF] dark:bg-zinc-900 rounded text-xs text-zinc-600 dark:text-zinc-400">
           <span className="font-medium">Query: </span>
           <span className="italic">{meta.autopromptString || meta.query}</span>
         </div>
@@ -387,7 +387,7 @@ export function MCPContentRenderer({ detectionResult, rawContent }: MCPContentRe
             </span>
           </div>
           <ScrollArea className="max-h-96">
-            <pre className="whitespace-pre-wrap font-mono text-xs text-zinc-700 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-900 p-3 rounded">
+            <pre className="whitespace-pre-wrap font-mono text-xs text-zinc-700 dark:text-zinc-300 bg-[#F2F5FF] dark:bg-zinc-900 p-3 rounded">
               {contentStr}
             </pre>
           </ScrollArea>

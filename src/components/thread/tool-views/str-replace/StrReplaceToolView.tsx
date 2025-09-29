@@ -47,7 +47,7 @@ const UnifiedDiffView: React.FC<{ lineDiff: LineDiff[] }> = ({ lineDiff }) => (
           <tr
             key={i}
             className={cn(
-              "hover:bg-zinc-50 dark:hover:bg-zinc-900",
+              "hover:bg-[#F2F5FF] dark:hover:bg-zinc-900",
               line.type === 'removed' && "bg-red-50 dark:bg-red-950/30",
               line.type === 'added' && "bg-emerald-50 dark:bg-emerald-950/30",
             )}
@@ -272,7 +272,7 @@ export function StrReplaceToolView({
         </div>
       </CardHeader>
 
-      <CardContent className="relative p-0 pb-10 m-6 mt-2 h-full flex-1 overflow-hidden bg-[#FCFCFC] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
+      <CardContent className="relative p-0 pb-10 m-6 mt-2 h-full flex-1 overflow-hidden bg-[#F2F5FF] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
         {isStreaming ? (
           <LoadingState
             icon={FileDiff}
@@ -330,14 +330,14 @@ export function StrReplaceToolView({
 
               {filePath && (
                 <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg overflow-hidden mb-4">
-                  <div className="bg-zinc-50 dark:bg-zinc-800 px-4 py-2 border-b border-zinc-200 dark:border-zinc-700">
+                  <div className="bg-[#F2F5FF] dark:bg-zinc-800 px-4 py-2 border-b border-zinc-200 dark:border-zinc-700">
                     <div className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
                       {filePath}
                     </div>
                   </div>
                   
                   {totalChanges > 0 && (
-                    <div className="px-4 py-2 bg-zinc-50 dark:bg-zinc-800/50 border-b border-zinc-200 dark:border-zinc-700">
+                    <div className="px-4 py-2 bg-[#F2F5FF] dark:bg-zinc-800/50 border-b border-zinc-200 dark:border-zinc-700">
                       <div className="flex items-center gap-4 text-xs">
                         <div className="flex items-center gap-1 text-emerald-700 dark:text-emerald-400">
                           <Plus className="h-3 w-3" />
@@ -367,7 +367,7 @@ export function StrReplaceToolView({
                                   "flex items-start border-l-2 pl-3 py-1 px-4",
                                   line.type === 'added' && "bg-emerald-50 dark:bg-emerald-950/30 border-emerald-500 text-emerald-800 dark:text-emerald-300",
                                   line.type === 'removed' && "bg-red-50 dark:bg-red-950/30 border-red-500 text-red-800 dark:text-red-300",
-                                  line.type === 'unchanged' && "bg-zinc-50 dark:bg-zinc-900/50 border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400"
+                                  line.type === 'unchanged' && "bg-[#F2F5FF] dark:bg-zinc-900/50 border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400"
                                 )}
                               >
                                 <div className="w-8 text-right mr-3 text-zinc-500 dark:text-zinc-500 select-none">

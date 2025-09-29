@@ -193,7 +193,7 @@ export function CompleteToolView({
         </div>
       </CardHeader>
 
-      <CardContent className="relative p-0 pb-10 m-6 mt-2 h-full flex-1 overflow-hidden bg-[#FCFCFC] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
+      <CardContent className="relative p-0 pb-10 m-6 mt-2 h-full flex-1 overflow-hidden bg-[#F2F5FF] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
         <ScrollArea className="h-full w-full">
           <div className="p-4 space-y-6">
             {/* Success Animation/Icon - Only show when completed successfully */}

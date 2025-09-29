@@ -57,7 +57,7 @@ export function LoadingState({
         </h3>
         
         {filePath && (
-          <div className="bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 w-full text-center mb-6 shadow-sm">
+          <div className="bg-[#F2F5FF] dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 w-full text-center mb-6 shadow-sm">
             <code className="text-sm font-mono text-zinc-700 dark:text-zinc-300 break-all">
               {filePath}
             </code>

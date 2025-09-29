@@ -154,7 +154,7 @@ export function WebSearchToolView({
       </CardHeader>
       {/* 搜索词展示 */}
       {query && (
-        <div className="mx-6 mt-4 mb-2 p-4 bg-[#FCFCFC] dark:bg-[#16191A] rounded-2xl border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31]">
+        <div className="mx-6 mt-4 mb-2 p-4 bg-[#F2F5FF] dark:bg-[#16191A] rounded-2xl border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31]">
           <div className="text-sm font-bold text-[#] dark:text-[#FFFFFF] mb-3 flex items-center justify-between">
             <span>{t('toolViews.webSearch.searchQuery')} ({getQueryWordCount(query)})</span>
           </div>
@@ -163,7 +163,7 @@ export function WebSearchToolView({
           </div>
         </div>
       )}
-      <CardContent className="relative p-0 pt-4 pb-10 m-6 mt-2 h-full flex-1 overflow-hidden bg-[#FCFCFC] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
+      <CardContent className="relative p-0 pt-4 pb-10 m-6 mt-2 h-full flex-1 overflow-hidden bg-[#F2F5FF] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
         {isStreaming && searchResults.length === 0 && !answer ? (
           <LoadingState
             icon={Search}
@@ -308,7 +308,7 @@ export function WebSearchToolView({
                                 className={`text-xs px-2 py-0 h-5 font-normal ${
                                   isKnowledgeBase 
                                     ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800'
-                                    : 'bg-zinc-50 dark:bg-zinc-800'
+                                    : 'bg-[#F2F5FF] dark:bg-zinc-800'
                                 }`}
                               >
                                 <ResultTypeIcon className="h-3 w-3 mr-1 opacity-70" />
@@ -399,7 +399,7 @@ export function WebSearchToolView({
                       </div>
 
                       {isExpanded && (
-                        <div className="bg-zinc-50 px-4 dark:bg-zinc-800/50 border-t border-zinc-200 dark:border-zinc-800 p-3 flex justify-between items-center">
+                        <div className="bg-[#F2F5FF] px-4 dark:bg-zinc-800/50 border-t border-zinc-200 dark:border-zinc-800 p-3 flex justify-between items-center">
                           <div className="text-xs text-zinc-500 dark:text-zinc-400">
                             {t('toolViews.webSearch.source')}: {cleanUrl(result.url)}
                           </div>
@@ -430,7 +430,7 @@ export function WebSearchToolView({
             <h3 className="text-xl font-semibold mb-2 text-zinc-900 dark:text-zinc-100">
               {t('toolViews.webSearch.noResultsFound')}
             </h3>
-            <div className="bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 w-full max-w-md text-center mb-4 shadow-sm">
+            <div className="bg-[#F2F5FF] dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 w-full max-w-md text-center mb-4 shadow-sm">
               <code className="text-sm font-mono text-zinc-700 dark:text-zinc-300 break-all">
                 {query || 'Unknown query'}
               </code>

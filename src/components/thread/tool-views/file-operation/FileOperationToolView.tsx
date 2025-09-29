@@ -523,7 +523,7 @@ export function FileOperationToolView({
       <h3 className="text-xl font-semibold mb-6 text-zinc-900 dark:text-zinc-100">
         {t('fileOperation.fileDeletedTitle')}
       </h3>
-      <div className="bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 w-full max-w-md text-center mb-4 shadow-sm">
+      <div className="bg-[#F2F5FF] dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 w-full max-w-md text-center mb-4 shadow-sm">
         <code className="text-sm font-mono text-zinc-700 dark:text-zinc-300 break-all">
           {processedFilePath || 'Unknown file path'}
         </code>
@@ -562,7 +562,7 @@ export function FileOperationToolView({
     if (hasHighlighting) {
       return (
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-12 border-r border-zinc-200 dark:border-zinc-800 z-10 flex flex-col bg-zinc-50 dark:bg-zinc-900">
+          <div className="absolute left-0 top-0 bottom-0 w-12 border-r border-zinc-200 dark:border-zinc-800 z-10 flex flex-col bg-[#F2F5FF] dark:bg-zinc-900">
             {contentLines.map((_, idx) => (
               <div
                 key={idx}
@@ -584,13 +584,13 @@ export function FileOperationToolView({
     }
 
     return (
-      <div className="min-w-full flex">
+      <div className="min-w-full flex flex-col">
         {contentLines.map((line, idx) => (
           <div
             key={idx}
             className={cn("table-row transition-colors", config.hoverColor)}
           >
-            <div className="table-cell text-right pr-3 pl-6 py-0.5 text-xs font-mono text-zinc-500 dark:text-zinc-500 select-none w-12 border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900">
+            <div className="table-cell text-right pr-3 pl-6 py-0.5 text-xs font-mono text-zinc-500 dark:text-zinc-500 select-none w-12 border-r border-zinc-200 dark:border-zinc-800 bg-[#F2F5FF] dark:bg-zinc-900">
               {idx + 1}
             </div>
             <div className="table-cell pl-3 py-0.5 pr-4 text-xs font-mono whitespace-pre-wrap text-zinc-800 dark:text-zinc-300">
@@ -654,7 +654,7 @@ export function FileOperationToolView({
           </div>
         </CardHeader>
 
-        <CardContent className="relative p-0 pb-10 m-6 h-full flex-1 overflow-hidden bg-[#FCFCFC] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
+        <CardContent className="relative p-0 pb-10 m-6 h-full flex-1 overflow-hidden bg-[#F2F5FF] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
           <TabsContent value="code" className="flex-1 h-full mt-0 p-0 pt-4 overflow-hidden">
             <ScrollArea className="h-screen w-full min-h-0" ref={codeAutoScroll.scrollRef}>
               {(isStreaming || isRealTimeStreaming) && !fileContent ? (
@@ -675,7 +675,7 @@ export function FileOperationToolView({
                   <h3 className="text-xl font-semibold mb-6 text-zinc-900 dark:text-zinc-100">
                     {t('fileOperation.deleteOperation')}
                   </h3>
-                  <div className="bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 w-full max-w-md text-center">
+                  <div className="bg-[#F2F5FF] dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 w-full max-w-md text-center">
                     <code className="text-sm font-mono text-zinc-700 dark:text-zinc-300 break-all">
                       {processedFilePath || 'Unknown file path'}
                     </code>
@@ -706,7 +706,7 @@ export function FileOperationToolView({
               )}
             </ScrollArea>
           </TabsContent>
-          <div className="absolute bottom-0 w-full px-4 h-10 flex justify-between items-center gap-4 bg-[#FCFCFC] dark:bg-[#16191A] border-t-1 border-solid border-[#EDEDED] dark:border-[#2A2F31]">
+          <div className="absolute bottom-0 w-full px-4 h-10 flex justify-between items-center gap-4 bg-[#F2F5FF] dark:bg-[#16191A] border-t-1 border-solid border-[#EDEDED] dark:border-[#2A2F31]">
             <div className="h-full flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
               <Badge variant="outline" className="py-0.5 h-6">
                 <FileIcon className="h-3 w-3" />
@@ -785,7 +785,7 @@ export function FileOperationToolView({
                   size="sm"
                     variant="outline"
                     onClick={handleCancelModification}
-                    className="h-8 text-xs border-zinc-300 dark:border-zinc-600 text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-full"
+                    className="h-8 text-xs border-zinc-300 dark:border-zinc-600 text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 hover:bg-[#F2F5FF] dark:hover:bg-zinc-800 rounded-full"
                 >
                     {t('fileOperation.cancelModification')}
                 </Button>

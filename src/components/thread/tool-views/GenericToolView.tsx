@@ -174,7 +174,7 @@ export function GenericToolView({
         </div>
       </CardHeader>
 
-      <CardContent className="relative p-0 pt-4 pb-10 m-6 mt-2 h-full flex-1 overflow-hidden bg-[#FCFCFC] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
+      <CardContent className="relative p-0 pt-4 pb-10 m-6 mt-2 h-full flex-1 overflow-hidden bg-[#F2F5FF] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
         {isStreaming ? (
           <LoadingState
             icon={Wrench}
@@ -236,7 +236,7 @@ export function GenericToolView({
         <div className="absolute bottom-0 w-full px-4 py-2 h-10 bg-gradient-to-r from-zinc-50/90 to-zinc-100/90 dark:from-zinc-900/90 dark:to-zinc-800/90 backdrop-blur-sm border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-center gap-4">
           <div className="h-full flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
             {!isStreaming && (formattedAssistantContent || formattedToolContent) && (
-              <Badge variant="outline" className="h-6 py-0.5 bg-zinc-50 dark:bg-zinc-900">
+              <Badge variant="outline" className="h-6 py-0.5 bg-[#F2F5FF] dark:bg-zinc-900">
                 <Wrench className="h-3 w-3" />
                 {t('activity.tool')}
               </Badge>

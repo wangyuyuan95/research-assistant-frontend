@@ -220,7 +220,7 @@ export function BrowserToolView({
             />
           </Card>
           {imageError && !imageLoading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-zinc-50 dark:bg-zinc-900">
+            <div className="absolute inset-0 flex items-center justify-center bg-[#F2F5FF] dark:bg-zinc-900">
               <div className="text-center text-zinc-500 dark:text-zinc-400">
                 <AlertTriangle className="h-8 w-8 mx-auto mb-2" />
                 <p>{t('toolViews.browser.failedToLoadScreenshot')}</p>
@@ -245,7 +245,7 @@ export function BrowserToolView({
             />
           </Card>
           {imageError && !imageLoading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-zinc-50 dark:bg-zinc-900">
+            <div className="absolute inset-0 flex items-center justify-center bg-[#F2F5FF] dark:bg-zinc-900">
               <div className="text-center text-zinc-500 dark:text-zinc-400">
                 <AlertTriangle className="h-8 w-8 mx-auto mb-2" />
                 <p>{t('toolViews.browser.failedToLoadScreenshot')}</p>
@@ -260,7 +260,7 @@ export function BrowserToolView({
 
   return (
     <Card className="gap-0 flex border shadow-none p-0 rounded-none flex-col h-full overflow-hidden">
-      <CardHeader className="h-14 bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b p-2 px-4 space-y-2">
+      <CardHeader className="h-14 bg-[#F2F5FF]/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b p-2 px-4 space-y-2">
         <div className="flex flex-row items-center justify-between">
           <div className="flex items-center gap-2">
           <div className="relative p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-purple-600/10 border border-purple-500/20">
@@ -373,7 +373,7 @@ export function BrowserToolView({
                 )}
               </Card>
               {imageError && !imageLoading && (
-                <div className="absolute inset-0 flex items-center justify-center bg-zinc-50 dark:bg-zinc-900">
+                <div className="absolute inset-0 flex items-center justify-center bg-[#F2F5FF] dark:bg-zinc-900">
                   <div className="text-center text-zinc-500 dark:text-zinc-400">
                     <AlertTriangle className="h-8 w-8 mx-auto mb-2" />
                     <p>{t('toolViews.browser.failedToLoadScreenshot')}</p>

@@ -174,7 +174,7 @@ export function WebCrawlToolView({
         </div>
       </CardHeader>
 
-      <CardContent className="relative p-0 pb-10 m-6 h-full flex-1 overflow-hidden bg-[#FCFCFC] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
+      <CardContent className="relative p-0 pb-10 m-6 h-full flex-1 overflow-hidden bg-[#F2F5FF] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
         {isStreaming ? (
           <div className="flex flex-col items-center justify-center h-full py-12 px-6 bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-950 dark:to-zinc-900">
             <div className="text-center w-full max-w-xs">
@@ -202,7 +202,7 @@ export function WebCrawlToolView({
                   {t('toolViews.webScrape.pageUrl')}
                 </div>
                 <div className="group relative">
-                  <div className="flex items-center gap-3 p-4 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors rounded-xl border border-zinc-200 dark:border-zinc-800">
+                  <div className="flex items-center gap-3 p-4 bg-[#F2F5FF] dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors rounded-xl border border-zinc-200 dark:border-zinc-800">
                     {favicon && (
                       <img 
                         src={favicon} 
@@ -253,7 +253,7 @@ export function WebCrawlToolView({
                 {webpageContent?.text ? (
                   <div className="group relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-200 hover:shadow-sm">
                     {/* Content Header */}
-                    <div className="flex items-center justify-between p-3 bg-zinc-50 dark:bg-zinc-800/50 border-b border-zinc-200 dark:border-zinc-700">
+                    <div className="flex items-center justify-between p-3 bg-[#F2F5FF] dark:bg-zinc-800/50 border-b border-zinc-200 dark:border-zinc-700">
                       <div className="flex items-center gap-2">
                         <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/20 to-blue-600/10 flex items-center justify-center border border-blue-500/20">
                           <FileText className="w-4 h-4 text-blue-600 dark:text-blue-400" />

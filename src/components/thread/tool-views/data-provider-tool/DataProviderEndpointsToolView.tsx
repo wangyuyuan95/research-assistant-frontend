@@ -98,7 +98,7 @@ export function DataProviderEndpointsToolView({
 
   return (
     <Card className="gap-0 flex border shadow-none border-t border-b-0 border-x-0 p-0 rounded-none flex-col h-full overflow-hidden bg-white dark:bg-zinc-950">
-      <CardHeader className="h-14 bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b p-2 px-4 space-y-2">
+      <CardHeader className="h-14 bg-[#F2F5FF]/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b p-2 px-4 space-y-2">
         <div className="flex flex-row items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="relative p-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/20">
@@ -149,7 +149,7 @@ export function DataProviderEndpointsToolView({
           </div>
         ) : (
           <div className="p-4 space-y-6">
-            <div className="flex items-center gap-4 p-4 bg-zinc-50 dark:bg-zinc-900/50 rounded-lg border border-zinc-200 dark:border-zinc-800">
+            <div className="flex items-center gap-4 p-4 bg-[#F2F5FF] dark:bg-zinc-900/50 rounded-lg border border-zinc-200 dark:border-zinc-800">
               <div className={cn(
                 "w-12 h-12 rounded-lg flex items-center justify-center shadow-sm border-2",
                 `bg-gradient-to-br ${providerConfig.color}`,
@@ -258,7 +258,7 @@ export function DataProviderEndpointsToolView({
         )}
       </CardContent>
       
-      <div className="px-4 py-2 h-10 bg-zinc-50/50 dark:bg-zinc-900/50 backdrop-blur-sm border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-center gap-4">
+      <div className="px-4 py-2 h-10 bg-[#F2F5FF]/50 dark:bg-zinc-900/50 backdrop-blur-sm border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-center gap-4">
         <div className="h-full flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
           {!isStreaming && (
             <Badge variant="outline" className="h-6 py-0.5 text-xs">

@@ -169,7 +169,7 @@ function SafeImage({ src, alt, filePath, className }: { src: string; alt: string
         </div>
       </div>
 
-      <div className="flex items-center justify-between w-full px-2 py-2 bg-zinc-50 dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800">
+      <div className="flex items-center justify-between w-full px-2 py-2 bg-[#F2F5FF] dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800">
         <Badge variant="secondary" className="bg-white/90 dark:bg-black/70 text-zinc-700 dark:text-zinc-300 shadow-sm">
           <ImageIcon className="h-3 w-3 mr-1" />
           {filePath.split('.').pop()?.toUpperCase()}
@@ -338,7 +338,7 @@ export function SeeImageToolView({
         </div>
       </CardHeader>
       
-      <CardContent className="relative p-0 pb-10 m-6 mt-2 h-full flex-1 overflow-hidden bg-[#FCFCFC] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
+      <CardContent className="relative p-0 pb-10 m-6 mt-2 h-full flex-1 overflow-hidden bg-[#F2F5FF] dark:bg-[#16191A] border-1 border-solid border-[#EDEDED] dark:border-[#2A2F31] rounded-2xl">
         {isStreaming ? (
           <div className="flex flex-col items-center justify-center h-full p-12 bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-950 dark:to-zinc-900">
             <div className="text-center w-full max-w-xs">
