@@ -237,7 +237,9 @@ export const MessageInput = forwardRef<HTMLTextAreaElement, MessageInputProps>(
             <TodoInterceptSettings />
             <Button
               type="submit"
-              onClick={isAgentRunning && onStopAgent ? onStopAgent : onSubmit}
+              onClick={isAgentRunning && onStopAgent ? onStopAgent : ((!value.trim() && uploadedFiles.length === 0 && !isAgentRunning) ||
+                loading ||
+                (disabled && !isAgentRunning)) ? null : onSubmit}
               size="sm"
               className={cn(
                 'h-[34px] w-[34px] p-0 bg-[none] rounded-[17px] flex-shrink-0 self-end',
@@ -248,11 +250,11 @@ export const MessageInput = forwardRef<HTMLTextAreaElement, MessageInputProps>(
                   ? 'bg-primary/50'
                   : '',
               )}
-              disabled={
-                (!value.trim() && uploadedFiles.length === 0 && !isAgentRunning) ||
-                loading ||
-                (disabled && !isAgentRunning)
-              }
+              // disabled={
+              //   (!value.trim() && uploadedFiles.length === 0 && !isAgentRunning) ||
+              //   loading ||
+              //   (disabled && !isAgentRunning)
+              // }
             >
               {loading ? (
                 <Loader2 className="h-[34px] w-[34px] animate-spin" />

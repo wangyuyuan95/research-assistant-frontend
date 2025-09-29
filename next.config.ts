@@ -1,8 +1,18 @@
 import { withSentryConfig } from '@sentry/nextjs';
 import type { NextConfig } from 'next';
-
+function rewritesConfig() {
+    return [
+        {
+            source: '/api/:path*',
+            destination: process.env.NEXT_PUBLIC_URL + '/api/:path*'
+        },
+    ]
+}
 let nextConfig: NextConfig = {
   output: 'standalone',
+  async rewrites() {
+      return rewritesConfig()
+  },
   webpack: (config) => {
     // This rule prevents issues with pdf.js and canvas
     config.externals = [...(config.externals || []), { canvas: 'canvas' }];

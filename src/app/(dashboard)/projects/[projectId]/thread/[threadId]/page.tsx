@@ -805,11 +805,11 @@ export default function ThreadPage({
 
         <div
           className={cn(
-            "fixed bottom-3 z-10 px-8 pt-6 transition-all duration-200 ease-in-out",
+            "fixed bottom-0 z-10 px-6 pt-6 transition-all duration-200 ease-in-out bg-gradient-to-t from-background via-background/90 to-transparent",
             leftSidebarState === 'expanded' ? 'left-[64px] lg:left-[286px]' : 'left-[64px]',
             isMobile ? 'left-0 right-0' : ''
           )}
-          style={isSidePanelOpen && !isMobile ? { right: `${sidePanelWidth}vw` } : undefined}>
+          style={isSidePanelOpen && !isMobile ? { right: `${sidePanelWidth}vw` } : { right: '0' }}>
           <div className={cn(
             "mx-auto",
             isMobile ? "w-full" : "max-w-4xl"

@@ -318,7 +318,7 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
         </Card>
 
         {/* Thinking indicator and timer */}
-        <div className="-mt-4 w-full flex items-center justify-center">
+        <div className="pt-6 -mt-4 w-full flex items-center justify-center">
           <div className="text-xs text-muted-foreground flex items-center gap-2">
             {isAgentRunning ? (
               <>
