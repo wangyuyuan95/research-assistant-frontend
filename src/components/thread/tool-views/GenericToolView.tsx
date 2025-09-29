@@ -233,7 +233,7 @@ export function GenericToolView({
             </p>
           </div>
         )}
-        <div className="absolute bottom-0 w-full px-4 py-2 h-10 bg-gradient-to-r from-zinc-50/90 to-zinc-100/90 dark:from-zinc-900/90 dark:to-zinc-800/90 backdrop-blur-sm border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-center gap-4">
+        <div className="absolute bottom-0 w-full px-4 py-2 h-10 bg-gradient-to-r from-[#F2F5FF]/90 to-[#F2F5FF]/90 dark:from-zinc-900/90 dark:to-zinc-800/90 backdrop-blur-sm border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-center gap-4">
           <div className="h-full flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
             {!isStreaming && (formattedAssistantContent || formattedToolContent) && (
               <Badge variant="outline" className="h-6 py-0.5 bg-[#F2F5FF] dark:bg-zinc-900">
