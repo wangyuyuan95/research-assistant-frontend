@@ -214,7 +214,7 @@ export function NavUserWithTeams({
               </SidebarMenuButton>
             </DropdownMenuTrigger>}
             <DropdownMenuContent
-              className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
+              className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg bg-[#F2F5FF] dark:bg-[#16191A]"
               side={isMobile ? 'bottom' : 'top'}
               align="start"
               sideOffset={4}
@@ -245,7 +245,7 @@ export function NavUserWithTeams({
                     onClick={() =>
                       handleTeamSelect({
                         name: personalAccount.name,
-                        logo: Command,
+                        logo: User,
                         plan: 'Personal',
                         account_id: personalAccount.account_id,
                         slug: personalAccount.slug,
@@ -254,11 +254,11 @@ export function NavUserWithTeams({
                     }
                     className="gap-2 p-2"
                   >
-                    <div className="flex size-6 items-center justify-center rounded-xs border">
-                      <Command className="size-4 shrink-0" />
+                    <div className="flex size-6 items-center justify-center rounded-lg border">
+                      <User className="size-4 shrink-0" />
                     </div>
                     {personalAccount.name}
-                    <DropdownMenuShortcut>⌘1</DropdownMenuShortcut>
+                    <DropdownMenuShortcut className="flex"><User />1</DropdownMenuShortcut>
                   </DropdownMenuItem>
                 </>
               )}
@@ -274,7 +274,7 @@ export function NavUserWithTeams({
                       onClick={() =>
                         handleTeamSelect({
                           name: team.name,
-                          logo: AudioWaveform,
+                          logo: User,
                           plan: 'Team',
                           account_id: team.account_id,
                           slug: team.slug,
@@ -283,11 +283,11 @@ export function NavUserWithTeams({
                       }
                       className="gap-2 p-2"
                     >
-                      <div className="flex size-6 items-center justify-center rounded-xs border">
-                        <AudioWaveform className="size-4 shrink-0" />
+                      <div className="flex size-6 items-center justify-center rounded-lg border">
+                        <User className="size-4 shrink-0" />
                       </div>
                       {team.name}
-                      <DropdownMenuShortcut>⌘{index + 2}</DropdownMenuShortcut>
+                      <DropdownMenuShortcut className="flex"><User />{index + 2}</DropdownMenuShortcut>
                     </DropdownMenuItem>
                   ))}
                 </>
@@ -335,14 +335,14 @@ export function NavUserWithTeams({
                   }}
                 >
                   <div className="flex items-center gap-2">
-                    <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                    <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                    <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-[#FFDEAD]-500 rounded-lg bg-gradient-to-br from-[#FFDEAD]-500/20 to-[#FFDEAD]-600/10 border border-[#FFDEAD]-500/20" />
+                    <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-yellow-500 rounded-lg bg-gradient-to-br from-yellow-500/20 to-yellow-600/10 border border-yellow-500/20" />
                     <span>{t('common.theme')}</span>
                   </div>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <div className="flex items-center gap-2 w-full">
-                    <Languages className="h-4 w-4" />
+                    <Languages className="h-4 w-4 text-[#9370DB]-500 rounded-lg bg-gradient-to-br from-[#9370DB]-500/20 to-[#9370DB]-600/10 border border-[#9370DB]-500/20" />
                     <span>{t('language.selectLanguage')}</span>
                     <div className="ml-auto flex gap-1">
                       <button
@@ -359,7 +359,7 @@ export function NavUserWithTeams({
                         onClick={() => changeLanguage('zh')}
                         className={`text-xs px-1 rounded ${
                           i18n.language === 'zh' 
-                            ? 'bg-primary text-primary-foreground' 
+                            ? 'bg-primary/30 text-primary-foreground' 
                             : 'hover:bg-accent'
                         }`}
                       >

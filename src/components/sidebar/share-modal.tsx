@@ -194,7 +194,7 @@ export function ShareModal({ isOpen, onClose, threadId, projectId }: ShareModalP
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <Share2 className="h-5 w-5" />
+            <Share2 className="h-5 w-5 text-blue-500" />
             {t('share.shareChat')}
           </DialogTitle>
         </DialogHeader>
@@ -251,7 +251,7 @@ export function ShareModal({ isOpen, onClose, threadId, projectId }: ShareModalP
             </>
           ) : (
             <div className="text-center space-y-4">
-              <div className="mx-auto w-12 h-12 bg-muted-foreground/20 rounded-full flex items-center justify-center">
+              <div className="mx-auto w-12 h-12 text-blue-500 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/20 flex items-center justify-center">
                 <Share2 className="h-6 w-6" />
               </div>
               <div className="space-y-2">
@@ -260,16 +260,16 @@ export function ShareModal({ isOpen, onClose, threadId, projectId }: ShareModalP
                   {t('share.createShareableDescription')}
                 </p>
               </div>
-              <Button onClick={createShareLink} disabled={isLoading} className="w-full text-[#FFFFFF] dark:text-[#0F0F0F]">
+              <Button onClick={createShareLink} disabled={isLoading} className="w-full bg-[#4867f1] dark:bg-[#16191A] text-[#FFFFFF]">
                 {isLoading ? (
                   <>
-                    <Loader2 className="h-4 w-4 animate-spin text-[#FFFFFF] dark:text-[#0F0F0F]" />
+                    <Loader2 className="h-4 w-4 animate-spin text-[#FFFFFF]" />
                     {t('share.creating')}
                   </>
                 ) : (
                   <>
-                    <Link className="h-4 w-4 text-[#FFFFFF] dark:text-[#0F0F0F]" />
-                    <span className="text-[#FFFFFF] dark:text-[#0F0F0F]">{t('share.createShareableLink')}</span>
+                    <Link className="h-4 w-4 text-[#FFFFFF]" />
+                    <span className="text-[#FFFFFF]">{t('share.createShareableLink')}</span>
                   </>
                 )}
               </Button>

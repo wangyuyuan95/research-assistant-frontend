@@ -482,7 +482,7 @@ export function NavAgents() {
                     <div className="relative">
                       <SidebarMenuButton
                         asChild
-                        className={`relative h-[48px] rounded-[16px] m-0 p-0 ${isActive
+                        className={`relative h-10 rounded-xl m-0 p-0 ${isActive
                           ? '!bg-[#F2F5FF] dark:!bg-[#303338] font-medium'
                           : isSelected
                             ? '!bg-[#F2F5FF] dark:!bg-[#303338]'
@@ -519,7 +519,7 @@ export function NavAgents() {
                               </div>
                             )}
                           </div>
-                          <span className="ml-4">{thread.projectName}</span>
+                          <span className="ml-4 text-[#0F0F0F] dark:text-[#FFFFFF] font-medium">{thread.projectName}</span>
                         </Link>
                       </SidebarMenuButton>
                     </div>
@@ -539,12 +539,12 @@ export function NavAgents() {
                           <span className="sr-only">{t('sidebar.more')}</span>
                         </SidebarMenuAction>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end" className="w-48">
+                      <DropdownMenuContent align="end" className="w-48 bg-[#F2F5FF] dark:bg-[#16191A]">
                         <DropdownMenuItem onClick={() => {
                           setSelectedItem({ threadId: thread?.threadId, projectId: thread?.projectId })
                           setShowShareModal(true)
                         }}>
-                          <Share2 className="mr-2 h-4 w-4" />
+                          <Share2 className="mr-2 h-4 w-4 text-blue-500" />
                           <span>{t('sidebar.shareChat')}</span>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
@@ -555,7 +555,7 @@ export function NavAgents() {
                             className="flex items-center w-full"
                             onClick={(e) => e.stopPropagation()}
                           >
-                            <ExternalLink className="mr-2 h-4 w-4" />
+                            <ExternalLink className="mr-2 h-4 w-4 text-green-500" />
                             <span>{t('sidebar.openInNewTab')}</span>
                           </Link>
                         </DropdownMenuItem>
@@ -567,7 +567,7 @@ export function NavAgents() {
                           }}
                           className="text-destructive"
                         >
-                          <Trash2 className="mr-2 h-4 w-4" />
+                          <Trash2 className="mr-2 h-4 w-4 text-red-500" />
                           <span>{t('sidebar.delete')}</span>
                         </DropdownMenuItem>
                       </DropdownMenuContent>
