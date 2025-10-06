@@ -286,7 +286,7 @@ function SidebarTrigger({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className={cn(
-            "transition-transform duration-200",
+            "text-[#000000] dark:text-[#FFFFFF] transition-transform duration-200",
             state === 'collapsed' ? 'rotate-180' : ''
           )}
         >

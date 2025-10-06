@@ -390,7 +390,7 @@ export function NavAgents() {
             ) : (
               <Link
                 href="/dashboard"
-                className="w-full bg-[#3363FF] hover:bg-[#3363FF]/70 text-[#FFFFFF] hover:text-[#FFFFFF]/70 text-[18px] font-normal rounded-md transition-all duration-100 flex items-center justify-center gap-1.5 h-12"
+                className="w-full bg-[#3363FF] hover:bg-[#3363FF]/70 text-[#FFFFFF] hover:text-[#FFFFFF]/70 text-[18px] font-normal rounded-md transition-all duration-100 flex items-center justify-center gap-1.5 h-10"
               >
                 <Image src={addSVG} alt="" style={{ width: 14, height: 14 }} />
                 <span>{t('sidebar.newChat')}</span>
@@ -402,12 +402,12 @@ export function NavAgents() {
 
       {/* Collapsed state new agent button */}
       {state === 'collapsed' && (
-        <div className="sticky top-0 z-10 bg-[#FFFFFF] dark:bg-[#202426] pb-2 pt-2 flex justify-center">
+        <div className="sticky top-0 z-10 bg-[#FFFFFF] dark:bg-[#202426] py-1 flex justify-center">
           <SidebarMenuItem className="list-none">
             <Tooltip>
               <TooltipTrigger asChild>
                 <div>
-                  <SidebarMenuButton asChild className="w-full bg-[#3363FF] hover:bg-[#3363FF]/70 text-[#FFFFFF] hover:text-[#FFFFFF]/70 text-[18px] font-normal rounded-md transition-all duration-100 flex items-center justify-center h-12">
+                  <SidebarMenuButton asChild className="w-full bg-[#3363FF] hover:bg-[#3363FF]/70 text-[#FFFFFF] hover:text-[#FFFFFF]/70 text-[18px] font-normal rounded-md transition-all duration-100 flex items-center justify-center h-10">
                     <Link href="/dashboard" className="flex items-center">
                       <Image src={addSVG} alt="" style={{ width: 14, height: 14 }} />
                     </Link>
@@ -427,7 +427,7 @@ export function NavAgents() {
           // Show skeleton loaders while loading
           Array.from({ length: 3 }).map((_, index) => (
             <SidebarMenuItem key={`skeleton-${index}`}>
-              <SidebarMenuButton className='h-[48px]'>
+              <SidebarMenuButton className='h-10'>
                 <div className="h-4 w-4 bg-sidebar-foreground/10 rounded-md animate-pulse"></div>
                 <div className="h-3 bg-sidebar-foreground/10 rounded w-3/4 animate-pulse"></div>
               </SidebarMenuButton>
@@ -445,7 +445,7 @@ export function NavAgents() {
               return (
                 <SidebarMenuItem key={`thread-${thread.threadId}`} className="mb-2">
                   {state === 'collapsed' ? (
-                    <div className="relative !h-[48px] flex items-center justify-center">
+                    <div className="relative !h-10 flex items-center justify-center">
                       <SidebarMenuButton
                         asChild
                          className="relative"
@@ -529,7 +529,7 @@ export function NavAgents() {
                       <DropdownMenuTrigger asChild>
                         <SidebarMenuAction
                           showOnHover
-                          className="group-hover:opacity-100 mr-5"
+                          className="group-hover:opacity-100 mr-1"
                           onClick={() => {
                             // Ensure pointer events are enabled when dropdown opens
                             document.body.style.pointerEvents = 'auto';
