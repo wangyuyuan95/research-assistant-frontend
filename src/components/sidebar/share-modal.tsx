@@ -12,7 +12,10 @@ import { useThreadQuery, useUpdateThreadMutation, useUpdateProject } from "@/hoo
 import type { JSX } from "react"
 import { Skeleton } from "../ui/skeleton"
 import { useTranslation } from 'react-i18next';
-
+import Image from 'next/image';
+import shareSVG from '#/share-page/share.svg';
+import linksSVG from '#/share-page/links.svg';
+import shareIcoSVG from '#/share-page/share-ico.svg';
 interface SocialShareOption {
   name: string
   icon: JSX.Element
@@ -194,7 +197,8 @@ export function ShareModal({ isOpen, onClose, threadId, projectId }: ShareModalP
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <Share2 className="h-5 w-5 text-blue-500" />
+            <Image src={shareSVG} alt="" className="h-5 w-5" />
+            {/* <Share2 className="h-5 w-5 text-blue-500" /> */}
             {t('share.shareChat')}
           </DialogTitle>
         </DialogHeader>
@@ -252,7 +256,8 @@ export function ShareModal({ isOpen, onClose, threadId, projectId }: ShareModalP
           ) : (
             <div className="text-center space-y-4">
               <div className="mx-auto w-12 h-12 text-blue-500 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/20 flex items-center justify-center">
-                <Share2 className="h-6 w-6" />
+                {/* <Share2 className="h-6 w-6" /> */}
+                <Image src={shareIcoSVG} alt="" className="h-6 w-6" />
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-semibold">{t('share.shareThisChat')}</h3>
@@ -268,7 +273,8 @@ export function ShareModal({ isOpen, onClose, threadId, projectId }: ShareModalP
                   </>
                 ) : (
                   <>
-                    <Link className="h-4 w-4 text-[#FFFFFF]" />
+                    {/* <Link className="h-4 w-4 text-[#FFFFFF]" /> */}
+                    <Image src={linksSVG} alt="" className="h-4 w-4 text-[#FFFFFF]" />
                     <span className="text-[#FFFFFF]">{t('share.createShareableLink')}</span>
                   </>
                 )}

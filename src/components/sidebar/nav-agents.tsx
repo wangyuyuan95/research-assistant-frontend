@@ -15,6 +15,7 @@ import {
   History,
   ExternalLink
 } from "lucide-react"
+
 import { toast } from "sonner"
 import { usePathname, useRouter } from "next/navigation"
 import { useTranslation } from 'react-i18next';
@@ -51,6 +52,9 @@ import { ThreadWithProject } from '@/hooks/react-query/sidebar/use-sidebar';
 import { processThreadsWithProjects, useDeleteMultipleThreads, useDeleteThread, useProjects, useThreads } from '@/hooks/react-query/sidebar/use-sidebar';
 import { projectKeys, threadKeys } from '@/hooks/react-query/sidebar/keys';
 import addSVG from '#/add-ico.svg';
+import shareSVG from '#/share-page/share.svg';
+import linkShareSVG from '#/share-page/link-share.svg';
+import deleteSVG from '#/share-page/delete.svg';
 
 export function NavAgents() {
   const { t } = useTranslation();
@@ -544,7 +548,8 @@ export function NavAgents() {
                           setSelectedItem({ threadId: thread?.threadId, projectId: thread?.projectId })
                           setShowShareModal(true)
                         }}>
-                          <Share2 className="mr-2 h-4 w-4 text-blue-500" />
+                          <Image src={shareSVG} alt="" className="h-5 w-5" />
+                          {/* <Share2 className="mr-2 h-4 w-4 text-blue-500" /> */}
                           <span>{t('sidebar.shareChat')}</span>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
@@ -555,7 +560,8 @@ export function NavAgents() {
                             className="flex items-center w-full"
                             onClick={(e) => e.stopPropagation()}
                           >
-                            <ExternalLink className="mr-2 h-4 w-4 text-green-500" />
+                            <Image src={linkShareSVG} alt="" className="mr-1.5 h-5 w-5" />
+                            {/* <ExternalLink className="mr-2 h-4 w-4 text-green-500" /> */}
                             <span>{t('sidebar.openInNewTab')}</span>
                           </Link>
                         </DropdownMenuItem>
@@ -567,7 +573,8 @@ export function NavAgents() {
                           }}
                           className="text-destructive"
                         >
-                          <Trash2 className="mr-2 h-4 w-4 text-red-500" />
+                          <Image src={deleteSVG} alt="" className="mr-0 h-5 w-5" />
+                          {/* <Trash2 className="mr-2 h-4 w-4 text-red-500" /> */}
                           <span>{t('sidebar.delete')}</span>
                         </DropdownMenuItem>
                       </DropdownMenuContent>
